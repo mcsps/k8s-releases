@@ -11,27 +11,34 @@ before_script:
  - echo "$GITHUB_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
  - git config --global user.email 'mcsps-dis@telekom.de'
  - git config --global user.name 'Deploy User'
- - git remote set-url --push origin https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git
  
 variables:
   BRANCH: $CI_COMMIT_REF_NAME
 
 stages:
   - fetchreleasenote
+  - publishgithub
 
-check-release:
+publish-github:
   tags:
     - k8s-executor
-  stage: fetchreleasenote
+  stage: publishgithub
   script:
 # sync to github
-    -  git remote remove https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git || true
     -  git remote remove github || true
     -  git remote add github git@github.com:mcsps/k8s-releases.git
     -  git remote -v
     -  git fetch github
     -  git push github --force HEAD:master || true
     -  exit 0
+
+check-release:
+  tags:
+    - k8s-executor
+  stage: fetchreleasenote
+  script:
+    - exit 0
+    - git remote set-url --push origin https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git
   # Release Notes Rancher
     -  ORG=rancher
     -  REPO=rancher
