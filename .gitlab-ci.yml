@@ -104,7 +104,7 @@ check-release:
     -  git commit -m "build index"
     -  git push origin --force HEAD:${BRANCH} || true
 # sync to github
-     - git remote remove https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git || true
+    -  git remote remove https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git || true
     -  git remote remove github || true
     -  git remote add github git@github.com:mcsps/k8s-releases.git
     -  git remote -v
