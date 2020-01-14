@@ -30,8 +30,10 @@ check-release:
     -  >
        if [[ "$LTAG" != "$RTAG" ]]; then
          git tag ${REPO}-${RTAG} 
-         git push origin --tags
+         git push origin --tags || exit 0
          echo ${DESC} > ${REPO}/${RTAG}.md
+         sed -i 's/#//g' ${REPO}/${RTAG}.md
+         sed -i 's/\r\n/\n/g' ${REPO}/${RTAG}.md
          git add ${REPO}/${RTAG}.md
          git commit -m "add release desc"
          git push origin HEAD:${REPO}
