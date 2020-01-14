@@ -9,7 +9,7 @@ variables:
 
 stages:
   - fetchreleasenote
-  - buildindex
+#  - buildindex
 
 before_script:
  - apk add --update --no-cache findutils bash curl wget git jq && apk upgrade
@@ -87,12 +87,6 @@ check-release:
        else
          echo "Nothing to do ${REPO}"
        fi
-
-build-index:
-  tags:
-    - k8s-executor
-  stage: buildindex
-  script:
     -  cat tpl/1.rst > index.rst
     -  cat tpl/2.rst >> index.rst
     -  find kubernetes/ -name "*.md" -printf "   %p"  >> index.rst
