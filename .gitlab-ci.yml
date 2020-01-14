@@ -4,7 +4,7 @@ cache: {}
 variables:
   DOCKER_DRIVER: overlay2
   DOCKER_HOST: tcp://localhost:2375
-  DOCKER_TLS_CERTDIR: ''
+  # DOCKER_TLS_CERTDIR: ''
   REPO: $CI_COMMIT_REF_NAME
 
 services:
