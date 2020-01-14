@@ -1,4 +1,5 @@
-image: mtr.external.otc.telekomcloud.com/mcsps/mcsps-tools:latest
+# image: mtr.external.otc.telekomcloud.com/mcsps/mcsps-tools:latest
+image: docker:latest
 
 before_script:
  - apk add --update --no-cache findutils bash curl wget git jq openssh-client && apk upgrade
