@@ -1,0 +1,6 @@
+Rancher
+=======
+
+.. toctree::
+   :maxdepth: 1
+

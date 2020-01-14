@@ -1,0 +1,6 @@
+.eggs/
+.tox/
+*.egg-info/
+html
+AUTHORS
+ChangeLog
