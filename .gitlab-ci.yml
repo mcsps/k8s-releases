@@ -1,6 +1,5 @@
 image: mtr.external.otc.telekomcloud.com/mcsps/mcsps-tools:latest
-#
-#
+
 before_script:
  - apk add --update --no-cache findutils bash curl wget git jq openssh-client && apk upgrade
  - mkdir -p ~/.ssh/
@@ -12,7 +11,6 @@ before_script:
  - git config --global user.name 'Deploy User'
  - git remote set-url --push origin https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git
  
-
 variables:
   BRANCH: $CI_COMMIT_REF_NAME
 
