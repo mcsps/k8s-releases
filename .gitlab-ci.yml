@@ -102,7 +102,7 @@ check-release:
     -  cat tpl/5.rst >> index.rst
     -  git add index.rst
     -  git commit -m "build index"
-    -  git push origin HEAD:${BRANCH} || true
+    -  git push origin --force HEAD:${BRANCH} || true
 # sync to github
     -  git remote remove github || true
     -  git remote add github git@github.com:mcsps/use-cases.git
