@@ -28,8 +28,8 @@ check-release:
     -  DESC=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | jq .body)
     -  echo ${REPO}
     -  echo ${RTAG}
-    -  echo ${LTAG}
     -  LTAG=$(git tag | grep ${REPO} | tail -1)
+    -  echo ${LTAG}
     -  >
        if [[ "$LTAG" != "$RTAG" ]]; then
          git tag ${REPO}-${RTAG} 
