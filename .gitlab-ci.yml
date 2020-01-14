@@ -28,7 +28,7 @@ check-release:
     -  DESC=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | jq .body)
     -  echo ${REPO}
     -  echo ${RTAG}
-    -  LTAG=$(git tag | grep "${REPO}" | tail -1)
+    -  LTAG=$(git tag | grep "$REPO" | tail -1)
     -  echo ${LTAG}
     -  echo "hier"
     -  exit
