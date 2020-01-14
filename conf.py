@@ -41,7 +41,30 @@ language = None
 exclude_patterns = []
 pygments_style = 'sphinx'
 
-html_theme = 'otcdocs'
+#html_theme = 'otcdocs'
+html_theme = 'classic'
+html_theme_options = {
+    'footerbgcolor': '#ffffff',
+    'footertextcolor': '#e5007d',
+    'sidebarbgcolor': '#e5007d',
+    'sidebarbtncolor': '#ededed',
+    'sidebartextcolor': '#eeeeee',
+    'sidebarlinkcolor': '#000000',
+    'relbarbgcolor': '#d0d0d0',
+    'relbartextcolor': '#a20074',
+    'relbarlinkcolor': '#a80257',
+    'bgcolor': '#ffffff',
+    'textcolor': '#6c6c6c',
+    'linkcolor': '#4b4b4b',
+    'visitedlinkcolor': '#6c6c6c',
+#    'headbgcolor':
+#    'headtextcolor':
+#    'headlinkcolor':
+    'codebgcolor': '#ededed',
+    'codetextcolor': '#a4a4a4',
+    'bodyfont': 'Tele-GroteskNor',
+    'headfont': 'Tele-GroteskFet',
+}
 html_static_path = ['_static']
 html_extra_path = ['_images']
 htmlhelp_basename = 'MCSPS Release Notes'

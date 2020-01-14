@@ -53,7 +53,8 @@ check-release:
          if ! git tag | grep ${REPO}-${RTAG}; then
            git tag ${REPO}-${RTAG} 
            git push origin --tags
-           echo -en ${DESC} > ${REPO}/${RTAG}.md
+           echo "# Release ${RTAG}" > ${REPO}/${RTAG}.md
+           echo -en ${DESC} >> ${REPO}/${RTAG}.md
            sed -i 's/"//g' ${REPO}/${RTAG}.md
            sed -i 's/\\r//g' ${REPO}/${RTAG}.md
            git add ${REPO}/${RTAG}.md
@@ -74,7 +75,8 @@ check-release:
          if ! git tag | grep ${REPO}-${RTAG}; then
            git tag ${REPO}-${RTAG} 
            git push origin --tags
-           echo -en ${DESC} > ${REPO}/${RTAG}.md
+           echo "# Release ${RTAG}" > ${REPO}/${RTAG}.md
+           echo -en ${DESC} >> ${REPO}/${RTAG}.md
            sed -i 's/"//g' ${REPO}/${RTAG}.md
            sed -i 's/\\r//g' ${REPO}/${RTAG}.md
            git add ${REPO}/${RTAG}.md
