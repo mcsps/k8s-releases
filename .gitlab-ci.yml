@@ -30,6 +30,7 @@ check-release:
     -  echo ${RTAG}
     -  LTAG=$(git tag | grep ${REPO} | tail -1)
     -  echo ${LTAG}
+    -  echo "hier"
     -  >
        if [[ "$LTAG" != "$RTAG" ]]; then
          git tag ${REPO}-${RTAG} 
