@@ -34,7 +34,7 @@ check-release:
          echo ${DESC} > ${REPO}/${RTAG}.md
          git add ${REPO}/${RTAG}.md
          git commit -m "add release desc"
-         git push HEAD:${REPO]
+         git push HEAD:${REPO}
        else
          exit 0
        fi
