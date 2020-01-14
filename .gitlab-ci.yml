@@ -1,0 +1,43 @@
+image: docker:latest
+cache: {}
+
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_HOST: tcp://localhost:2375
+  DOCKER_TLS_CERTDIR: ''
+  REPO: $CI_COMMIT_REF_NAME
+
+services:
+  - docker:dind
+
+stages:
+  - prepare
+
+before_script:
+ - apk add --update --no-cache bash curl wget git jq && apk upgrade
+ - git remote set-url --push origin https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git
+ - git config --global user.email 'mcsps-dis@telekom.de'
+ - git config --global user.name 'Deploy User'
+
+check-release:
+  tags:
+    - k8s-executor
+  stage: prepare
+  script:
+    -  RTAG=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  DESC=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | jq .body)
+    -  LTAG=$(git tag | grep $REPO | tail -1)
+    -  >
+       if [[ "$LTAG" != "$RTAG" ]]; then
+         git tag ${REPO}-${RTAG} 
+         git push origin --tags
+         echo ${DESC} > ${REPO}/${RTAG}.md
+         git add ${REPO}/${RTAG}.md
+         git commit -m "add release desc"
+         git push HEAD:${REPO]
+       else
+         exit 0
+       fi
+  except: 
+    - tags
+
