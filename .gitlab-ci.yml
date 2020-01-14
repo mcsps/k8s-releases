@@ -29,7 +29,7 @@ check-release:
     -  LTAG=$(git tag | sed 's/${REPO}-//' | tail -1 )
     -  >
        if [[ "$LTAG" != "$RTAG" ]]; then
-         if [ ! git tag | grep ${REPO}-${RTAG} ]
+         if [ ! git tag | grep ${REPO}-${RTAG} ]; then
            git tag ${REPO}-${RTAG} 
            git push origin --tags
            echo -en ${DESC} > ${REPO}/${RTAG}.md
@@ -39,6 +39,8 @@ check-release:
            git commit -m "add release desc"
            git push origin HEAD:${REPO}
          fi
+       else
+         echo "Nothing to do ${REPO}"
        fi
   except: 
     - tags
