@@ -21,12 +21,13 @@ check-release:
     - k8s-executor
   stage: prepare
   script:
+    -  REPO=rancher
     -  RTAG=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
     -  DESC=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | jq .body)
     -  LTAG=$(git tag | sed 's/${REPO}-//' | tail -1 )
     -  >
        if [[ "$LTAG" != "$RTAG" ]]; then
-         if [ ! "git tag | grep '${REPO}-${RTAG}'" ]; then
+         if [ ! "git tag | grep ${REPO}-${RTAG}" ]; then
            git tag ${REPO}-${RTAG} 
            git push origin --tags
            echo -en ${DESC} > ${REPO}/${RTAG}.md
@@ -35,10 +36,11 @@ check-release:
            git add ${REPO}/${RTAG}.md
            git commit -m "add release desc"
            git push origin HEAD:${REPO}
+         else
+           echo "in the loop"
          fi
        else
          echo "Nothing to do ${REPO}"
        fi
   except: 
     - tags
-
