@@ -1,6 +1,7 @@
 Welcome to MCSPS Release Notes
 ==============================
 
+
 Kubernetes
 ==========
 
@@ -8,6 +9,7 @@ Kubernetes
    :maxdepth: 1
 
 kubernetes/v1.16.4.md
+
 Rancher
 =======
 
@@ -15,6 +17,7 @@ Rancher
    :maxdepth: 1
 
 rancher/v2.3.3.md
+
 Terraform
 =========
 
