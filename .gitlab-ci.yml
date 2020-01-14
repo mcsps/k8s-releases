@@ -1,21 +1,23 @@
-image: docker:latest
-cache: {}
+image: mtr.external.otc.telekomcloud.com/mcsps/mcsps-tools:latest
+#
+#
+before_script:
+ - apk add --update --no-cache findutils bash curl wget git jq openssh-client && apk upgrade
+ - mkdir -p ~/.ssh/
+ - ssh-keyscan github.com >> ~/.ssh/known_hosts
+ - chmod 644 ~/.ssh/known_hosts
+ - eval $(ssh-agent -s)
+ - echo "$GITHUB_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+ - git config --global user.email 'mcsps-dis@telekom.de'
+ - git config --global user.name 'Deploy User'
+ - git remote set-url --push origin https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git
+ 
 
 variables:
-  DOCKER_DRIVER: overlay2
-  DOCKER_HOST: tcp://localhost:2375
-  # DOCKER_TLS_CERTDIR: ''
   BRANCH: $CI_COMMIT_REF_NAME
 
 stages:
   - fetchreleasenote
-#  - buildindex
-
-before_script:
- - apk add --update --no-cache findutils bash curl wget git jq && apk upgrade
- - git remote set-url --push origin https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git
- - git config --global user.email 'mcsps-dis@telekom.de'
- - git config --global user.name 'Deploy User'
 
 check-release:
   tags:
@@ -101,5 +103,11 @@ check-release:
     -  git add index.rst
     -  git commit -m "build index"
     -  git push origin HEAD:${BRANCH} || true
+# sync to github
+    -  git remote remove github || true
+    -  git remote add github git@github.com:mcsps/use-cases.git
+    -  git remote -v
+    -  git fetch github
+    -  git push github --force HEAD:master | true
   except: 
     - tags
