@@ -27,7 +27,7 @@ check-release:
     -  RTAG=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
     -  DESC=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | jq .body)
     -  echo ${REPO}
-    -  echo ${RTAG]
+    -  echo ${RTAG}
     -  echo ${LTAG}
     -  LTAG=$(git tag | grep ${REPO} | tail -1)
     -  >
