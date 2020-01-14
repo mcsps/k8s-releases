@@ -8,7 +8,7 @@ variables:
   REPO: $CI_COMMIT_REF_NAME
 
 stages:
-  - prepare
+  - fetchreleasenote
 
 before_script:
  - apk add --update --no-cache bash curl wget git jq && apk upgrade
@@ -19,8 +19,9 @@ before_script:
 check-release:
   tags:
     - k8s-executor
-  stage: prepare
+  stage: fetchreleasenote
   script:
+  # Release Notes Rancher
     -  REPO=rancher
     -  RTAG=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
     -  DESC=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | jq .body)
@@ -36,8 +37,26 @@ check-release:
            git add ${REPO}/${RTAG}.md
            git commit -m "add release desc"
            git push origin HEAD:${REPO}
-         else
-           echo "in the loop"
+         fi
+       else
+         echo "Nothing to do ${REPO}"
+       fi
+  # Release Notes kubernetes
+    -  REPO=kuberntes
+    -  RTAG=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  DESC=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | jq .body)
+    -  LTAG=$(git tag | sed 's/${REPO}-//' | tail -1 )
+    -  >
+       if [[ "$LTAG" != "$RTAG" ]]; then
+         if ! git tag | grep ${REPO}-${RTAG}; then
+           git tag ${REPO}-${RTAG} 
+           git push origin --tags
+           echo -en ${DESC} > ${REPO}/${RTAG}.md
+           sed -i 's/"//g' ${REPO}/${RTAG}.md
+           sed -i 's/\\r//g' ${REPO}/${RTAG}.md
+           git add ${REPO}/${RTAG}.md
+           git commit -m "add release desc"
+           git push origin HEAD:${REPO}
          fi
        else
          echo "Nothing to do ${REPO}"
