@@ -42,7 +42,7 @@ check-release:
          echo "Nothing to do ${REPO}"
        fi
   # Release Notes kubernetes
-    -  REPO=kuberntes
+    -  REPO=kubernetes
     -  RTAG=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
     -  DESC=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | jq .body)
     -  LTAG=$(git tag | sed 's/${REPO}-//' | tail -1 )
