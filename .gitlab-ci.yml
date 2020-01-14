@@ -27,6 +27,7 @@ check-release:
     -  ORG=rancher
     -  REPO=rancher
     -  RTAG=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  exit 0
     -  echo "${RTAG}"
     -  DESC=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
     -  LTAG=$(git tag | sed 's/${REPO}-//' | tail -1 )
