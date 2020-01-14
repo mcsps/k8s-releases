@@ -37,7 +37,7 @@ check-release:
            sed -i 's/\\r//g' ${REPO}/${RTAG}.md
            git add ${REPO}/${RTAG}.md
            git commit -m "add release desc"
-           git push origin HEAD:${BRANCH}
+           git push origin HEAD:${BRANCH} || true
          fi
        else
          echo "Nothing to do ${REPO}"
@@ -59,7 +59,7 @@ check-release:
            sed -i 's/\\r//g' ${REPO}/${RTAG}.md
            git add ${REPO}/${RTAG}.md
            git commit -m "add release desc"
-           git push origin HEAD:${BRANCH}
+           git push origin HEAD:${BRANCH} || true
          fi
        else
          echo "Nothing to do ${REPO}"
@@ -81,7 +81,7 @@ check-release:
            sed -i 's/\\r//g' ${REPO}/${RTAG}.md
            git add ${REPO}/${RTAG}.md
            git commit -m "add release desc"
-           git push origin HEAD:${BRANCH}
+           git push origin HEAD:${BRANCH} || true
          fi
        else
          echo "Nothing to do ${REPO}"
