@@ -8,7 +8,7 @@ Kubernetes
 .. toctree::
    :maxdepth: 1
 
-   kubernetes/v1.16.4.md
+   kubernetes/v1.16.4.md   kubernetes/v1.15.6.md
 
 Rancher
 =======
@@ -16,7 +16,7 @@ Rancher
 .. toctree::
    :maxdepth: 1
 
-   rancher/v2.3.3.md
+   rancher/v2.3.3.md   rancher/v2.2.9.md
 
 Terraform
 =========
