@@ -5,7 +5,7 @@ variables:
   DOCKER_DRIVER: overlay2
   DOCKER_HOST: tcp://localhost:2375
   # DOCKER_TLS_CERTDIR: ''
-  REPO: $CI_COMMIT_REF_NAME
+  BRANCH: $CI_COMMIT_REF_NAME
 
 stages:
   - fetchreleasenote
@@ -22,9 +22,10 @@ check-release:
   stage: fetchreleasenote
   script:
   # Release Notes Rancher
+    -  ORG=rancher
     -  REPO=rancher
-    -  RTAG=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    -  DESC=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | jq .body)
+    -  RTAG=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  DESC=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
     -  LTAG=$(git tag | sed 's/${REPO}-//' | tail -1 )
     -  >
        if [[ "$LTAG" != "$RTAG" ]]; then
@@ -36,15 +37,16 @@ check-release:
            sed -i 's/\\r//g' ${REPO}/${RTAG}.md
            git add ${REPO}/${RTAG}.md
            git commit -m "add release desc"
-           git push origin HEAD:${REPO}
+           git push origin HEAD:${BRANCH}
          fi
        else
          echo "Nothing to do ${REPO}"
        fi
   # Release Notes kubernetes
+    -  ORG=kubernetes
     -  REPO=kubernetes
-    -  RTAG=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    -  DESC=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | jq .body)
+    -  RTAG=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  DESC=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
     -  LTAG=$(git tag | sed 's/${REPO}-//' | tail -1 )
     -  >
        if [[ "$LTAG" != "$RTAG" ]]; then
@@ -56,7 +58,28 @@ check-release:
            sed -i 's/\\r//g' ${REPO}/${RTAG}.md
            git add ${REPO}/${RTAG}.md
            git commit -m "add release desc"
-           git push origin HEAD:${REPO}
+           git push origin HEAD:${BRANCH}
+         fi
+       else
+         echo "Nothing to do ${REPO}"
+       fi
+  # Release Notes Terraform
+    -  ORG=hashicorp
+    -  REPO=terraform
+    -  RTAG=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  DESC=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
+    -  LTAG=$(git tag | sed 's/${REPO}-//' | tail -1 )
+    -  >
+       if [[ "$LTAG" != "$RTAG" ]]; then
+         if ! git tag | grep ${REPO}-${RTAG}; then
+           git tag ${REPO}-${RTAG} 
+           git push origin --tags
+           echo -en ${DESC} > ${REPO}/${RTAG}.md
+           sed -i 's/"//g' ${REPO}/${RTAG}.md
+           sed -i 's/\\r//g' ${REPO}/${RTAG}.md
+           git add ${REPO}/${RTAG}.md
+           git commit -m "add release desc"
+           git push origin HEAD:${BRANCH}
          fi
        else
          echo "Nothing to do ${REPO}"
