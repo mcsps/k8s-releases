@@ -26,12 +26,7 @@ check-release:
   script:
     -  RTAG=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
     -  DESC=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | jq .body)
-    -  echo ${REPO}
-    -  echo ${RTAG}
     -  LTAG=$(git tag | sed 's/${REPO}-//' | tail -1 )
-    -  echo ${LTAG}
-    -  echo "hier"
-    -  exit
     -  >
        if [[ "$LTAG" != "$RTAG" ]]; then
          git tag ${REPO}-${RTAG} 
