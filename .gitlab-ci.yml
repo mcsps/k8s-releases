@@ -7,9 +7,6 @@ variables:
   # DOCKER_TLS_CERTDIR: ''
   REPO: $CI_COMMIT_REF_NAME
 
-services:
-  - docker:dind
-
 stages:
   - prepare
 
