@@ -1,6 +1,9 @@
 Welcome to MCSPS Release Notes
 ==============================
 
+Last change: |today|
+
+
 
 Kubernetes
 ==========
