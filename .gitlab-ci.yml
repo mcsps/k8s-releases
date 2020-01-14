@@ -23,12 +23,12 @@ check-release:
   tags:
     - k8s-executor
   stage: prepare
+    # LTAG=$(git tag | grep ${REPO} | tail -1)
   script:
     -  RTAG=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
     -  DESC=$(curl --silent "https://api.github.com/repos/${REPO}/${REPO}/releases/latest" | jq .body)
     -  echo ${REPO}
     -  echo ${RTAG}
-    -  # LTAG=$(git tag | grep ${REPO} | tail -1)
     -  LTAG=$(git tag)
     -  echo ${LTAG}
     -  echo "hier"
