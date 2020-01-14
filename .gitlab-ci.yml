@@ -11,7 +11,7 @@ stages:
   - fetchreleasenote
 
 before_script:
- - apk add --update --no-cache bash curl wget git jq && apk upgrade
+ - apk add --update --no-cache findutils bash curl wget git jq && apk upgrade
  - git remote set-url --push origin https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git
  - git config --global user.email 'mcsps-dis@telekom.de'
  - git config --global user.name 'Deploy User'
