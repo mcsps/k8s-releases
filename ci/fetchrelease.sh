@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Needs github credentials to work on API and push repo
+#
 # Display current API Quota
 curl -H "Authorization: token ${GITHUB_OAUTH}" --silent -i https://api.github.com/ | grep "X-RateLimit-Remaining:"
 

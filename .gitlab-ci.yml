@@ -1,5 +1,5 @@
-# image: mtr.external.otc.telekomcloud.com/mcsps/mcsps-tools:latest
-image: docker:latest
+image: mtr.external.otc.telekomcloud.com/mcsps/mcsps-tools:latest
+# image: docker:latest
 cache: {}
 
 # beware of the rate limits
