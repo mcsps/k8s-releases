@@ -13,6 +13,7 @@ function checkrelease() {
 
   # if git tag | tr -d '\n' | grep ${REPO}-${RTAG} > /dev/null; then
   if [ -z "$RTAG" ] && [ -z "$DESC" ]; then
+    echo "Process ${REPO}"
     if git tag | grep "${REPO}-${RTAG}" > /dev/null; then
       echo "Nothing to do ${REPO}"
     else
