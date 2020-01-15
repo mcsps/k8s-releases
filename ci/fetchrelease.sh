@@ -17,11 +17,6 @@ function checkrelease() {
   echo "Process ${REPO} $RTAG"
   if [ ! -z "$RTAG" ] && [ ! -z "$DESC" ]; then
     LTAG=$(git ls-remote --tags origin | grep ${REPO}-${RTAG})
-    echo "${LTAG##*/}"
-    echo "========"
-    echo "${LTAG##*/}"
-    echo "${REPO}-${RTAG}"
-    echo "========"
     if [ "${LTAG##*/}" == "${REPO}-${RTAG}" ]; then
       echo "Nothing to do ${REPO}"
     else
