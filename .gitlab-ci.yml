@@ -4,6 +4,8 @@ cache: {}
 
 # beware of the rate limits
 # https://developer.github.com/v3/#rate-limiting
+# anonymous: 60 per hour
+# registered: 5000 per hour
 
 before_script:
  - apk add --update --no-cache findutils bash curl wget git jq openssh-client && apk upgrade
@@ -17,6 +19,11 @@ before_script:
  
 variables:
   BRANCH: $CI_COMMIT_REF_NAME
+  # GITHUB_OAUTH: OAuth token to access Github API
+  # DEPLOY_TOKEN: Deploy token for Github
+  # GITHUB_USER: Github m2m user
+  # GITHUB_PASSWORD: Github m2m password
+  # GITHUB_SSH_PRIVATE_KEY: Github m2m ssh private key
 
 stages:
   - fetchreleasenote
@@ -28,12 +35,13 @@ check-release:
     - k8s-executor
   stage: fetchreleasenote
   script:
-    - git remote set-url --push origin https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git
+    -  curl -H "Authorization: token ${GITHUB_OAUTH}" -i --silent https://api.github.com/ | grep "X-Rate Limit-Remaining:"
+    -  git remote set-url --push origin https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git
   # Release Notes Rancher
     -  ORG=rancher
     -  REPO=rancher
-    -  RTAG=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    -  DESC=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
+    -  RTAG=$(curl -H "Authorization: token ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  DESC=$(curl -H "Authorization: token ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
     -  >
        if "! git tag | tr -d '\n' | grep ${REPO}-${RTAG}"; then
          git tag ${REPO}-${RTAG} 
@@ -50,8 +58,8 @@ check-release:
   # Release Notes kubernetes
     -  ORG=kubernetes
     -  REPO=kubernetes
-    -  RTAG=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    -  DESC=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
+    -  RTAG=$(curl -H "Authorization: token ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  DESC=$(curl -H "Authorization: token ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
     -  >
        if "! git tag | tr -d '\n' | grep ${REPO}-${RTAG}"; then
          git tag ${REPO}-${RTAG} 
@@ -69,8 +77,8 @@ check-release:
   # Release Notes Terraform
     -  ORG=hashicorp
     -  REPO=terraform
-    -  RTAG=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    -  DESC=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
+    -  RTAG=$(curl -H "Authorization: token ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  DESC=$(curl -H "Authorization: token ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
     -  >
        if "! git tag | tr -d '\n' | grep ${REPO}-${RTAG}"; then
          git tag ${REPO}-${RTAG} 
