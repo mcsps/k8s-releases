@@ -40,8 +40,8 @@ check-release:
   # Release Notes Rancher
     -  ORG=rancher
     -  REPO=rancher
-    -  RTAG=$(curl -H 'Authorization: token ${GITHUB_OAUTH}' --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    -  DESC=$(curl -H 'Authorization: token ${GITHUB_OAUTH}' --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
+    -  RTAG=$(curl -H Authorization: token ${GITHUB_OAUTH} --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  DESC=$(curl -H Authorization: token ${GITHUB_OAUTH} --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
     -  >
        if "! git tag | tr -d '\n' | grep ${REPO}-${RTAG}"; then
          git tag ${REPO}-${RTAG} 
@@ -58,8 +58,8 @@ check-release:
   # Release Notes kubernetes
     -  ORG=kubernetes
     -  REPO=kubernetes
-    -  RTAG=$(curl -H 'Authorization: token ${GITHUB_OAUTH}' --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    -  DESC=$(curl -H 'Authorization: token ${GITHUB_OAUTH}' --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
+    -  RTAG=$(curl -H Authorization: token ${GITHUB_OAUTH} --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  DESC=$(curl -H Authorization: token ${GITHUB_OAUTH} --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
     -  >
        if "! git tag | tr -d '\n' | grep ${REPO}-${RTAG}"; then
          git tag ${REPO}-${RTAG} 
@@ -77,8 +77,8 @@ check-release:
   # Release Notes Terraform
     -  ORG=hashicorp
     -  REPO=terraform
-    -  RTAG=$(curl -H 'Authorization: token ${GITHUB_OAUTH}' --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    -  DESC=$(curl -H 'Authorization: token ${GITHUB_OAUTH}' --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
+    -  RTAG=$(curl -H Authorization: token ${GITHUB_OAUTH} --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  DESC=$(curl -H Authorization: token ${GITHUB_OAUTH} --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
     -  >
        if "! git tag | tr -d '\n' | grep ${REPO}-${RTAG}"; then
          git tag ${REPO}-${RTAG} 
