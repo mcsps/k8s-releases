@@ -1,7 +1,7 @@
-#!/bin/bash -x
+#!/bin/bash
 
 # Display current API Quota
-curl -H "Authorization: token ${GITHUB_OAUTH}" --silent -i https://api.github.com/ | grep "X-Rate Limit-Remaining:"
+curl -H "Authorization: token ${GITHUB_OAUTH}" --silent -i https://api.github.com/ | grep "X-RateLimit-Remaining:"
 
 git remote set-url --push origin https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git
 
