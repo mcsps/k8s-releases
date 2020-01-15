@@ -111,6 +111,7 @@ check-release:
        fi
   except: 
     - tags
+    - pipelines
 
 publish-github:
   tags:
