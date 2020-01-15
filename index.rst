@@ -13,7 +13,6 @@ Kubernetes
 
    kubernetes/v1.16.4.md
    kubernetes/v1.15.6.md
-   kubernetes/.md
 
 
 Rancher
@@ -24,7 +23,6 @@ Rancher
 
    rancher/v2.3.3.md
    rancher/v2.2.9.md
-   rancher/.md
 
 
 Terraform
@@ -34,7 +32,6 @@ Terraform
    :maxdepth: 1
 
    terraform/v0.12.19.md
-   terraform/.md
 
 
 Indices and tables
