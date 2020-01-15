@@ -30,7 +30,6 @@ check-release:
     -  ORG=rancher
     -  REPO=rancher
     -  RTAG=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    -  echo "${RTAG}"
     -  DESC=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
     -  >
        if ! git tag | grep ${REPO}-${RTAG}; then
@@ -45,13 +44,11 @@ check-release:
        else
          echo "Nothing to do ${REPO}"
        fi
-    - exit 0
   # Release Notes kubernetes
     -  ORG=kubernetes
     -  REPO=kubernetes
-    -  CURL=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest")
-    -  RTAG=$(echo ${CURL} | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    -  DESC=$(echo ${CURL} | jq .body)
+    -  RTAG=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  DESC=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
     -  LTAG=$(git tag | sed 's/${REPO}-//' | tail -1 )
     -  >
        if [[ "$LTAG" != "$RTAG" ]]; then
@@ -72,9 +69,8 @@ check-release:
   # Release Notes Terraform
     -  ORG=hashicorp
     -  REPO=terraform
-    -  CURL=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest")
-    -  RTAG=$(echo ${CURL} | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    -  DESC=$(echo ${CURL} | jq .body)
+    -  RTAG=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  DESC=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
     -  LTAG=$(git tag | sed 's/${REPO}-//' | tail -1 )
     -  >
        if [[ "$LTAG" != "$RTAG" ]]; then
