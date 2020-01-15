@@ -13,6 +13,7 @@ Kubernetes
 
    kubernetes/v1.16.4.md
    kubernetes/v1.15.6.md
+   kubernetes/.md
 
 
 Rancher
