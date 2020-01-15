@@ -29,10 +29,9 @@ check-release:
   # Release Notes Rancher
     -  ORG=rancher
     -  REPO=rancher
-    -  CURL=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest")
-    -  RTAG=$(echo ${CURL} | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  RTAG=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
     -  echo "${RTAG}"
-    -  DESC=$(echo ${CURL} | jq .body)
+    -  DESC=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
     -  >
        if ! git tag | grep ${REPO}-${RTAG}; then
          git tag ${REPO}-${RTAG} 
