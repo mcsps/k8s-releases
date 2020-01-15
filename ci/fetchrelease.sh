@@ -18,10 +18,10 @@ function checkrelease() {
   if [ ! -z "$RTAG" ] && [ ! -z "$DESC" ]; then
     LTAG=$(git ls-remote --tags origin | grep ${REPO}-${RTAG})
     echo "========"
-    echo "$LTAG"
+    echo "$LTAG##*/"
     echo "${REPO}-${RTAG}"
     echo "========"
-    if [ "$LTAG" == "${REPO}-${RTAG}" ]; then
+    if [ "$LTAG##*/" == "${REPO}-${RTAG}" ]; then
       echo "Nothing to do ${REPO}"
     else
       echo "OK: create tag ${REPO}-${RTAG}"
