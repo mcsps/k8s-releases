@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # Display current API Quota
 curl -H "Authorization: token ${GITHUB_OAUTH}" --silent -i https://api.github.com/ | grep "X-RateLimit-Remaining:"
