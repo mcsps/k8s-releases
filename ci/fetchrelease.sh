@@ -15,7 +15,7 @@ function checkrelease() {
   if git tag | grep "${REPO}-${RTAG}" > /dev/null; then
     echo "Nothing to do ${REPO}"
   else
-    echo "create tag"
+    echo "create tag ${REPO}-${RTAG}"
     git tag ${REPO}-${RTAG} 
     git push origin --tags
     if [[ "${REPO}" != "rancher" ]]; then
