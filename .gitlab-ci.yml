@@ -37,7 +37,7 @@ check-release:
   script:
 #    -  |
 #       curl -H "Authorization: token ${GITHUB_OAUTH}" -i "https://api.github.com/" | grep "X-Rate Limit-Remaining:"
-    -  CURL=$(curl -H "Authorization: token ${GITHUB_OAUTH}" --silent -i "https://api.github.com/" | grep "X-Rate Limit-Remaining:")
+    -  CURL=$(curl -H "Authorization:\ token\ ${GITHUB_OAUTH}" --silent -i "https://api.github.com/" | grep "X-Rate Limit-Remaining:")
     -  echo "${CURL}"
     -  exit 0
     -  git remote set-url --push origin https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git
