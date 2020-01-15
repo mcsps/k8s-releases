@@ -7,11 +7,6 @@ curl -H "Authorization: token ${GITHUB_OAUTH}" --silent -i https://api.github.co
 
 git remote set-url --push origin https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git
 
-echo "current tags:"
-git pull --tag
-git tag
-echo "........."
-
 function checkrelease() {
   ORG=$1
   REPO=$2
@@ -21,7 +16,7 @@ function checkrelease() {
   # if git tag | tr -d '\n' | grep ${REPO}-${RTAG} > /dev/null; then
   echo "Process ${REPO} $RTAG"
   if [ ! -z "$RTAG" ] && [ ! -z "$DESC" ]; then
-    LTAG=$(git tag | grep ${REPO}-${RTAG})
+    LTAG=$(git ls-remote --tags origin | grep ${REPO}-${RTAG})
     echo "========"
     echo "$LTAG"
     echo "${REPO}-${RTAG}"
