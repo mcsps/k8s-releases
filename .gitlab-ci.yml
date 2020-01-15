@@ -30,8 +30,8 @@ check-release:
     -  ORG=rancher
     -  REPO=rancher
     -  CURL=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest")
-    -  RTAG=$(cat ${CURL} | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    -  DESC=$(cat ${CURL} | jq .body)
+    -  RTAG=$(echo ${CURL} | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  DESC=$(echo ${CURL} | jq .body)
     -  LTAG=$(git tag | sed 's/${REPO}-//' | tail -1 )
     -  echo "${LTAG}"
     -  >
@@ -53,8 +53,8 @@ check-release:
     -  ORG=kubernetes
     -  REPO=kubernetes
     -  CURL=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest")
-    -  RTAG=$(cat ${CURL} | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    -  DESC=$(cat ${CURL} | jq .body)
+    -  RTAG=$(echo ${CURL} | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  DESC=$(echo ${CURL} | jq .body)
     -  LTAG=$(git tag | sed 's/${REPO}-//' | tail -1 )
     -  >
        if [[ "$LTAG" != "$RTAG" ]]; then
@@ -76,8 +76,8 @@ check-release:
     -  ORG=hashicorp
     -  REPO=terraform
     -  CURL=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest")
-    -  RTAG=$(cat ${CURL} | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    -  DESC=$(cat ${CURL} | jq .body)
+    -  RTAG=$(echo ${CURL} | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+    -  DESC=$(echo ${CURL} | jq .body)
     -  LTAG=$(git tag | sed 's/${REPO}-//' | tail -1 )
     -  >
        if [[ "$LTAG" != "$RTAG" ]]; then
