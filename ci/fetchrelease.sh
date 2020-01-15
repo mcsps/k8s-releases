@@ -16,7 +16,7 @@ function checkrelease() {
   # if git tag | tr -d '\n' | grep ${REPO}-${RTAG} > /dev/null; then
   echo "Process ${REPO} $RTAG"
   if [ ! -z "$RTAG" ] && [ ! -z "$DESC" ]; then
-    LTAG=$(git tag | tr -d '\n' | grep ${REPO}-${RTAG})
+    LTAG=$(git tag | grep ${REPO}-${RTAG})
     echo "========"
     echo "$LTAG"
     echo "${REPO}-${RTAG}"
