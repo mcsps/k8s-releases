@@ -29,92 +29,12 @@ stages:
   - fetchreleasenote
   - publishgithub
 
-
 check-release:
   tags:
     - k8s-executor
   stage: fetchreleasenote
   script:
-#    -  |
-#       curl -H "Authorization: token ${GITHUB_OAUTH}" -i "https://api.github.com/" | grep "X-Rate Limit-Remaining:"
-    -  CURL=$(curl -H "Authorization:\ token\ ${GITHUB_OAUTH}" --silent -i "https://api.github.com/" | grep "X-Rate Limit-Remaining:")
-    -  echo "${CURL}"
-    -  exit 0
-    -  git remote set-url --push origin https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git
-  # Release Notes Rancher
-    -  ORG=rancher
-    -  REPO=rancher
-    -  RTAG=$(curl -H "Authorization:\ token\ ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    -  DESC=$(curl -H "Authorization:\ token\ ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
-    -  >
-       if "! git tag | tr -d '\n' | grep ${REPO}-${RTAG}"; then
-         git tag ${REPO}-${RTAG} 
-         git push origin --tags
-         echo -en ${DESC} > ${REPO}/${RTAG}.md
-         sed -i 's/"//g' ${REPO}/${RTAG}.md
-         sed -i 's/\\r//g' ${REPO}/${RTAG}.md
-         git add ${REPO}/${RTAG}.md
-         git commit -m "add release desc"
-         git push origin HEAD:${BRANCH} || true
-       else
-         echo "Nothing to do ${REPO}"
-       fi
-  # Release Notes kubernetes
-    -  ORG=kubernetes
-    -  REPO=kubernetes
-    -  RTAG=$(curl -H "Authorization:\ token\ ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    -  DESC=$(curl -H "Authorization:\ token\ ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
-    -  >
-       if "! git tag | tr -d '\n' | grep ${REPO}-${RTAG}"; then
-         git tag ${REPO}-${RTAG} 
-         git push origin --tags
-         echo "# Release ${RTAG}" > ${REPO}/${RTAG}.md
-         echo -en ${DESC} >> ${REPO}/${RTAG}.md
-         sed -i 's/"//g' ${REPO}/${RTAG}.md
-         sed -i 's/\\r//g' ${REPO}/${RTAG}.md
-         git add ${REPO}/${RTAG}.md
-         git commit -m "add release desc"
-         git push origin HEAD:${BRANCH} || true
-       else
-         echo "Nothing to do ${REPO}"
-       fi
-  # Release Notes Terraform
-    -  ORG=hashicorp
-    -  REPO=terraform
-    -  RTAG=$(curl -H "Authorization:\ token\ ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-    -  DESC=$(curl -H "Authorization:\ token\ ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
-    -  >
-       if "! git tag | tr -d '\n' | grep ${REPO}-${RTAG}"; then
-         git tag ${REPO}-${RTAG} 
-         git push origin --tags
-         echo "# Release ${RTAG}" > ${REPO}/${RTAG}.md
-         echo -en ${DESC} >> ${REPO}/${RTAG}.md
-         sed -i 's/"//g' ${REPO}/${RTAG}.md
-         sed -i 's/\\r//g' ${REPO}/${RTAG}.md
-         git add ${REPO}/${RTAG}.md
-         git commit -m "add release desc"
-         git push origin HEAD:${BRANCH} || true
-       else
-         echo "Nothing to do ${REPO}"
-       fi
-    -  cat tpl/1.rst > index.rst
-    -  cat tpl/2.rst >> index.rst
-    -  find kubernetes/ -name "*.md" -printf "   %p\n"  | sort -r >> index.rst
-    -  echo "" >> index.rst
-    -  cat tpl/3.rst >> index.rst
-    -  find rancher/ -name "*.md" -printf "   %p\n"  | sort -r >> index.rst
-    -  echo "" >> index.rst
-    -  cat tpl/4.rst >> index.rst
-    -  find terraform/ -name "*.md" -printf "   %p\n" | sort -r >> index.rst
-    -  echo "" >> index.rst
-    -  cat tpl/5.rst >> index.rst
-    -  GCOUNT=$(git status --porcelain | wc -l)
-    -  >
-       if [[ "${GCOUNT}" != "0" ]] ; then
-         git add index.rst
-         git commit -m "build index"
-         git push origin --force HEAD:${BRANCH} || true
-       fi
+    -  ci/fetchrelease.sh
   except: 
     - tags
     - pipelines
@@ -124,11 +44,6 @@ publish-github:
     - k8s-executor
   stage: publishgithub
   script:
-    -  git remote remove github || true
-    -  git remote add github git@github.com:mcsps/k8s-releases.git
-    -  git remote -v
-    -  git fetch github
-    -  git push github --force HEAD:master || true
-    -  exit 0
+    -  ci/publishgithub.sh
   except: 
     - tags
