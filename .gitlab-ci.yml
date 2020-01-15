@@ -25,7 +25,6 @@ check-release:
     - k8s-executor
   stage: fetchreleasenote
   script:
-    - exit 0
     - git remote set-url --push origin https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git
   # Release Notes Rancher
     -  ORG=rancher
