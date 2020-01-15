@@ -11,7 +11,8 @@ function checkrelease() {
   RTAG=$(curl -H "Authorization:\ token\ ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
   DESC=$(curl -H "Authorization:\ token\ ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
 
-  if git tag | tr -d '\n' | grep ${REPO}-${RTAG} > /dev/null; then
+  # if git tag | tr -d '\n' | grep ${REPO}-${RTAG} > /dev/null; then
+  if git tag | grep "${REPO}-${RTAG}" > /dev/null; then
     echo "Nothing to do ${REPO}"
   else
     echo "create tag"
