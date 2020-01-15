@@ -8,8 +8,8 @@ git remote set-url --push origin https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom
 function checkrelease() {
   ORG=$1
   REPO=$2
-  RTAG=$(curl -H "Authorization:\ token\ ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
-  DESC=$(curl -H "Authorization:\ token\ ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
+  RTAG=$(curl -H "Authorization: token ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+  DESC=$(curl -H "Authorization: token ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
 
   # if git tag | tr -d '\n' | grep ${REPO}-${RTAG} > /dev/null; then
   if [ -z "$RTAG" ] && [ -z "$DESC" ]; then
