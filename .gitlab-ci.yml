@@ -102,8 +102,9 @@ check-release:
     -  find terraform/ -name "*.md" -printf "   %p\n" | sort -r >> index.rst
     -  echo "" >> index.rst
     -  cat tpl/5.rst >> index.rst
+    -  GCOUNT=$(git status --porcelain | wc -l)
     -  >
-       if ! -z $(git status --porcelain); then
+       if [[ "${GCOUNT}" != "0" ]] ; then
          git add index.rst
          git commit -m "build index"
          git push origin --force HEAD:${BRANCH} || true
