@@ -12,8 +12,8 @@ function checkrelease() {
   DESC=$(curl -H "Authorization: token ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
 
   # if git tag | tr -d '\n' | grep ${REPO}-${RTAG} > /dev/null; then
+  echo "Process ${REPO} $RTAG"
   if [ -z "$RTAG" ] && [ -z "$DESC" ]; then
-    echo "Process ${REPO}"
     if git tag | grep "${REPO}-${RTAG}" > /dev/null; then
       echo "Nothing to do ${REPO}"
     else
