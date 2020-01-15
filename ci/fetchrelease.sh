@@ -14,7 +14,8 @@ function checkrelease() {
   # if git tag | tr -d '\n' | grep ${REPO}-${RTAG} > /dev/null; then
   echo "Process ${REPO} $RTAG"
   if [ ! -z "$RTAG" ] && [ ! -z "$DESC" ]; then
-    if $(git tag | tr -d '\n' | grep "${REPO}-${RTAG}" > /dev/null); then
+    #if $(git tag | tr -d '\n' | grep "${REPO}-${RTAG}" > /dev/null); then
+    if [[ $(git tag | grep "${REPO}-${RTAG}" | wc -l) -ge 0 ]]; then
       echo "Nothing to do ${REPO}"
     else
       echo "OK: create tag ${REPO}-${RTAG}"
