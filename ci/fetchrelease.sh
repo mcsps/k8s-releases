@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # Display current API Quota
 curl -H "Authorization: token ${GITHUB_OAUTH}" --silent -i https://api.github.com/ | grep "X-Rate Limit-Remaining:"
@@ -11,7 +11,7 @@ function checkrelease() {
   RTAG=$(curl -H "Authorization:\ token\ ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
   DESC=$(curl -H "Authorization:\ token\ ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
 
-  if ! git tag | tr -d '\n' | grep ${REPO}-${RTAG}; then
+  if git tag | tr -d '\n' | grep -v ${REPO}-${RTAG}; then
     git tag ${REPO}-${RTAG} 
     git push origin --tags
     if [[ "${REPO}" != "rancher" ]]; then
