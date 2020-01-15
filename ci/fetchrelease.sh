@@ -22,7 +22,7 @@ function checkrelease() {
     echo "${LTAG##*/}"
     echo "${REPO}-${RTAG}"
     echo "========"
-    if [ "$LTAG##*/" == "${REPO}-${RTAG}" ]; then
+    if [ "${LTAG##*/}" == "${REPO}-${RTAG}" ]; then
       echo "Nothing to do ${REPO}"
     else
       echo "OK: create tag ${REPO}-${RTAG}"
