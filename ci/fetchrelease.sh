@@ -56,6 +56,6 @@ function buildindex {
 }
 
 checkrelease rancher rancher
-checkrelease kubenetes kubernetes
+checkrelease kubernetes kubernetes
 checkrelease hashicorp terraform
 buildindex
