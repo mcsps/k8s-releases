@@ -12,23 +12,25 @@ function checkrelease() {
   DESC=$(curl -H "Authorization:\ token\ ${GITHUB_OAUTH}" --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
 
   # if git tag | tr -d '\n' | grep ${REPO}-${RTAG} > /dev/null; then
-  if git tag | grep "${REPO}-${RTAG}" > /dev/null; then
-    echo "Nothing to do ${REPO}"
-  else
-    echo "create tag ${REPO}-${RTAG}"
-    git tag ${REPO}-${RTAG} 
-    git push origin --tags
-    if [[ "${REPO}" != "rancher" ]]; then
-      echo "# Release ${RTAG}" > ${REPO}/${RTAG}.md
-      echo -en ${DESC} >> ${REPO}/${RTAG}.md
-    else 
-      echo -en ${DESC} > ${REPO}/${RTAG}.md
+  if [ -z "$RTAG" ] && [ -z "$DESC" ]; then
+    if git tag | grep "${REPO}-${RTAG}" > /dev/null; then
+      echo "Nothing to do ${REPO}"
+    else
+      echo "OK: create tag ${REPO}-${RTAG}"
+      git tag ${REPO}-${RTAG} 
+      git push origin --tags
+      if [[ "${REPO}" != "rancher" ]]; then
+        echo "# Release ${RTAG}" > ${REPO}/${RTAG}.md
+        echo -en ${DESC} >> ${REPO}/${RTAG}.md
+      else 
+        echo -en ${DESC} > ${REPO}/${RTAG}.md
+      fi
+      sed -i 's/"//g' ${REPO}/${RTAG}.md
+      sed -i 's/\\r//g' ${REPO}/${RTAG}.md
+      git add ${REPO}/${RTAG}.md
+      git commit -m "add release desc"
+      git push origin HEAD:${BRANCH} || true
     fi
-    sed -i 's/"//g' ${REPO}/${RTAG}.md
-    sed -i 's/\\r//g' ${REPO}/${RTAG}.md
-    git add ${REPO}/${RTAG}.md
-    git commit -m "add release desc"
-    git push origin HEAD:${BRANCH} || true
   fi
 }
 
