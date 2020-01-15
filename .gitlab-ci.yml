@@ -52,20 +52,17 @@ check-release:
     -  REPO=kubernetes
     -  RTAG=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
     -  DESC=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
-    -  LTAG=$(git tag | sed 's/${REPO}-//' | tail -1 )
     -  >
-       if [[ "$LTAG" != "$RTAG" ]]; then
-         if ! git tag | tr -d '\n' | grep ${REPO}-${RTAG}; then
-           git tag ${REPO}-${RTAG} 
-           git push origin --tags
-           echo "# Release ${RTAG}" > ${REPO}/${RTAG}.md
-           echo -en ${DESC} >> ${REPO}/${RTAG}.md
-           sed -i 's/"//g' ${REPO}/${RTAG}.md
-           sed -i 's/\\r//g' ${REPO}/${RTAG}.md
-           git add ${REPO}/${RTAG}.md
-           git commit -m "add release desc"
-           git push origin HEAD:${BRANCH} || true
-         fi
+       if "! git tag | tr -d '\n' | grep ${REPO}-${RTAG}"; then
+         git tag ${REPO}-${RTAG} 
+         git push origin --tags
+         echo "# Release ${RTAG}" > ${REPO}/${RTAG}.md
+         echo -en ${DESC} >> ${REPO}/${RTAG}.md
+         sed -i 's/"//g' ${REPO}/${RTAG}.md
+         sed -i 's/\\r//g' ${REPO}/${RTAG}.md
+         git add ${REPO}/${RTAG}.md
+         git commit -m "add release desc"
+         git push origin HEAD:${BRANCH} || true
        else
          echo "Nothing to do ${REPO}"
        fi
@@ -74,20 +71,17 @@ check-release:
     -  REPO=terraform
     -  RTAG=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
     -  DESC=$(curl --silent "https://api.github.com/repos/${ORG}/${REPO}/releases/latest" | jq .body)
-    -  LTAG=$(git tag | sed 's/${REPO}-//' | tail -1 )
     -  >
-       if [[ "$LTAG" != "$RTAG" ]]; then
-         if ! git tag | tr -d '\n' | grep ${REPO}-${RTAG}; then
-           git tag ${REPO}-${RTAG} 
-           git push origin --tags
-           echo "# Release ${RTAG}" > ${REPO}/${RTAG}.md
-           echo -en ${DESC} >> ${REPO}/${RTAG}.md
-           sed -i 's/"//g' ${REPO}/${RTAG}.md
-           sed -i 's/\\r//g' ${REPO}/${RTAG}.md
-           git add ${REPO}/${RTAG}.md
-           git commit -m "add release desc"
-           git push origin HEAD:${BRANCH} || true
-         fi
+       if "! git tag | tr -d '\n' | grep ${REPO}-${RTAG}"; then
+         git tag ${REPO}-${RTAG} 
+         git push origin --tags
+         echo "# Release ${RTAG}" > ${REPO}/${RTAG}.md
+         echo -en ${DESC} >> ${REPO}/${RTAG}.md
+         sed -i 's/"//g' ${REPO}/${RTAG}.md
+         sed -i 's/\\r//g' ${REPO}/${RTAG}.md
+         git add ${REPO}/${RTAG}.md
+         git commit -m "add release desc"
+         git push origin HEAD:${BRANCH} || true
        else
          echo "Nothing to do ${REPO}"
        fi
