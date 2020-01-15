@@ -17,10 +17,10 @@ function checkrelease() {
   echo "Process ${REPO} $RTAG"
   if [ ! -z "$RTAG" ] && [ ! -z "$DESC" ]; then
     LTAG=$(git tag | tr -d '\n' | grep ${REPO}-${RTAG})
-    print "========"
-    print "$LTAG"
-    print "${REPO}-${RTAG}"
-    print "========"
+    echo "========"
+    echo "$LTAG"
+    echo "${REPO}-${RTAG}"
+    echo "========"
     if [ "$LTAG" == "${REPO}-${RTAG}" ]; then
       echo "Nothing to do ${REPO}"
     else
