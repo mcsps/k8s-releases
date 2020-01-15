@@ -35,7 +35,7 @@ check-release:
     - k8s-executor
   stage: fetchreleasenote
   script:
-    -  "curl -H 'Authorization: token ${GITHUB_OAUTH}' -i --silent https://api.github.com/ | grep 'X-Rate Limit-Remaining:'"
+    -  curl -H "Authorization:\ token\ ${GITHUB_OAUTH}" -i --silent https://api.github.com/ | grep "X-Rate Limit-Remaining:"
     -  git remote set-url --push origin https://oauth2:$DEPLOY_TOKEN@gitlab.dol.telekom.de/mcsps/k8s-releases.git
   # Release Notes Rancher
     -  ORG=rancher
