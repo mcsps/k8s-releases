@@ -24,6 +24,7 @@ Rancher
 
    rancher/v2.3.3.md
    rancher/v2.2.9.md
+   rancher/.md
 
 
 Terraform
