@@ -16,6 +16,7 @@ Kubernetes
    kubernetes/v1.15.9.md
    kubernetes/v1.15.8.md
    kubernetes/v1.15.6.md
+   kubernetes/v1.15.11.md
    kubernetes/v1.15.10.md
 
 
