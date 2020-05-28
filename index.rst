@@ -50,6 +50,7 @@ Terraform
 .. toctree::
    :maxdepth: 1
 
+   terraform/v0.12.26.md
    terraform/v0.12.25.md
    terraform/v0.12.24.md
    terraform/v0.12.23.md
