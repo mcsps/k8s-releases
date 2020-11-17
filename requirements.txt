@@ -3,3 +3,4 @@ sphinx
 pbr
 otcdocstheme
 recommonmark
+sphinxfeed
