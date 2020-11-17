@@ -88,6 +88,24 @@ External DNS
    external-dns/v0.7.4.md
 
 
+Terraform Provider Opentelekomcloud
+===================================
+
+.. toctree::
+   :maxdepth: 1
+
+   terraform-provider-opentelekomcloud/v1.21.4.md
+
+
+Cloud Provider Openstack
+========================
+
+.. toctree::
+   :maxdepth: 1
+
+   cloud-provider-openstack/openstack-manila-csi-1.0.0.md
+
+
 Indices and tables
 ==================
 
