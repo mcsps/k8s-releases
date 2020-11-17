@@ -77,6 +77,8 @@ function buildindex {
 checkrelease rancher rancher
 checkrelease kubernetes kubernetes
 checkrelease hashicorp terraform
+checkrelease opentelekomcloud terraform-provider-opentelekomcloud
 checkrelease jetstack cert-manager
 checkrelease kubernetes-sigs external-dns
+checkrelease kubernetes cloud-provider-openstack
 buildindex
