@@ -1,0 +1,7 @@
+# Release v1.18.2
+See [kubernetes-announce@](https://groups.google.com/forum/#!forum/kubernetes-announce) and [CHANGELOG/CHANGELOG-1.18.md](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1182) for details.
+
+SHA256 for `kubernetes.tar.gz`: `f515c097acbdd69d02c5d365f73338f9403bd9c3eb4b050b58cb1084a121cde2`
+SHA512 for `kubernetes.tar.gz`: `2f8e853bd59731410259d5357d9969425fbbbea378bbe6cdd0f7a9ddf5c25924838300924b03ec15d6b9030be86bea9d26bb9b63078bf2c150b0bbc0859419d7`
+
+Additional binary downloads are linked in the [CHANGELOG/CHANGELOG-1.18.md](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#downloads-for-v1182).

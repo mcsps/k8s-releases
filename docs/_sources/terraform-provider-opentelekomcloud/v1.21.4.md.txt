@@ -1,0 +1,2 @@
+# Release v1.21.4
+[Changelog](https://github.com/opentelekomcloud/terraform-provider-opentelekomcloud/blob/v1.21.4/CHANGELOG.md#1214-november-12-2020)

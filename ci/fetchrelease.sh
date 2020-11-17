@@ -54,7 +54,7 @@ function buildindex {
   echo "" >> index.rst
 
   cat tpl/4.rst >> index.rst
-  find terraform/ -name "*.md" -printf "   %p\n" | sort -r >> index.rst
+  find cloud-provider-openstack/ -name "*.md" -printf "   %p\n" | sort -r >> index.rst
   echo "" >> index.rst
 
   cat tpl/5.rst >> index.rst
@@ -70,7 +70,7 @@ function buildindex {
   echo "" >> index.rst
 
   cat tpl/8.rst >> index.rst
-  find cloud-provider-openstack/ -name "*.md" -printf "   %p\n" | sort -r >> index.rst
+  find terraform/ -name "*.md" -printf "   %p\n" | sort -r >> index.rst
   echo "" >> index.rst
 
   cat tpl/99.rst >> index.rst

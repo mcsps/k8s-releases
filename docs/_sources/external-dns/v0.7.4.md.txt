@@ -1,0 +1,55 @@
+# Release v0.7.4
+Changelog:
+
+* Fix Designate doc (#1697) @openstacker
+* Improve documentation about rfc2136 TTLs (#1581) @stefanlasiewski
+* aws: errors with context (#1705) @bpineau
+* Update kustomization for 0.7.3 release (#1709) @james-callahan
+* \passphrase:\ is missing from oci.yaml example (#1712) @tonychoe
+* update and clean up azure dependencies (#1727) @tariq1890
+* add event handler for istio gateway and virtualservice source (#1728) @tariq1890
+* Ignore wildcard hosts in Istio gateways (#1625) @haines
+* Add Scaleway DNS as a new provider (#1643) @Sh4d1
+* bump kubernetes dependencies and run go mod tidy (#1732) @tariq1890
+* update release docs to include kustomization config (#1736) @vinny-sabatini
+* fix goimports local import order and update golangci-lint (#1737) @tariq1890
+* docs: cleanup version roadmap docs (#1731) @vinny-sabatini
+* External DNS should uses ALIAS for AWS Global Accelerator (#1549) @Reuuke
+* added --txt-prefix to google deployment (#1729) @prune998
+* Docs: Fixed typos (#1734) @ddymko
+* add license header check to the CI (#1738) @tariq1890
+* Update Documentation with Updated Registry Location (#1741) @seanmalloy
+* utilize the errors package for error handling (#1748) @vinny-sabatini
+* remove unused field IstioIngressGatewayServices (#1753) @tariq1890
+* provide documentation of available prometheus metrics (#1752) @vinny-sabatini
+* docs: enhance pull request template (#1747) @seanmalloy
+* Fix index out of range when hostname has no dots (#1756) @chemasan
+* Updated FAQ for usage of annotation-filter (#1763) @jgrumboe
+* Add Cloudflare documentation on use of `--zone-id-filter` (#1751) @loozhengyuan
+* Move Inactive Maintainers To Emeritus Approvers (#1761) @seanmalloy
+* Enable azure_private_dns to work with non \AzurePublicCloud\ clouds (#1578) @daddonpa
+* Add tutorial for GKE with workload identity (#1765) @ddgenome
+* Fixes coverall, #1755 (#1762) @jgrumboe
+* Remove changelog from PR template (#1767) @Raffo
+* Update pull requests template (#1769) @seanmalloy
+* Add quick start section to contributor docs (#1766) @seanmalloy
+* fix ingress-controller yaml link (#1768) @kapekost
+* ns1: add minttlseconds (#1576) @dennisme
+* Update Contributing Documentation (#1760) @seanmalloy
+* Contour HTTPProxy support (#1628) @josephglanville
+* aws: cache zones list (#1704) @bpineau
+* Update kustomize base (#1777) @mgoodness
+* Add --zone-name-filter option for azure provider (#1060) @titilambert
+* add service annotation to set public/private iface for NodePort (#1310) @rbtr
+* Publish ExternalIPs for LoadBalancer services (#1500) @burningalchemist
+* Hetzner: fix records update (#1778) @21h
+* Optionally ignore tls rules in ingress source (#1645) @Benjile
+
+Docker images are available on Google Container Registry:
+
+```
+k8s.gcr.io/external-dns/external-dns:v0.7.4 --help
+```
+
+🎉 Thank you all for your contributions 🎉
+

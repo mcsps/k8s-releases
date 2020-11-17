@@ -1,0 +1,125 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Release v0.12.20 &#8212; MCSPS Release Notes  documentation</title>
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Release v0.12.19" href="v0.12.19.html" />
+    <link rel="prev" title="Release v0.12.21" href="v0.12.21.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="v0.12.19.html" title="Release v0.12.19"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="v0.12.21.html" title="Release v0.12.21"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MCSPS Release Notes  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="release-v0-12-20">
+<span id="release-v0-12-20"></span><h1>Release v0.12.20<a class="headerlink" href="#release-v0-12-20" title="Permalink to this headline">¶</a></h1>
+<p>ENHANCEMENTS:</p>
+<ul class="simple">
+<li>config: New built-in functions <code class="docutils literal"><span class="pre">try</span></code> and <code class="docutils literal"><span class="pre">can</span></code> are intended to ease working with data structures whose shape isn't known statically. (<a class="reference external" href="https://github.com/hashicorp/terraform/issues/23794">#23794</a>)</li>
+<li>config: New, optional syntax for <a class="reference external" href="https://www.terraform.io/docs/configuration/terraform.html#specifying-required-provider-versions"><code class="docutils literal"><span class="pre">required_providers</span></code></a> setting in <code class="docutils literal"><span class="pre">terraform</span></code> blocks. This is not intended for general use yet but will support upcoming enhancements. [<a class="reference external" href="https://github.com/hashicorp/terraform/issues/23843">#23843</a>]</li>
+</ul>
+<p>BUG FIXES:</p>
+<ul class="simple">
+<li>command/show: Fix an issue with show and aliased providers (<a class="reference external" href="https://github.com/hashicorp/terraform/issues/23848">#23848</a>)</li>
+<li>core: Always clean up empty resources before empty modules (<a class="reference external" href="https://github.com/hashicorp/terraform/issues/23822">#23822</a>)</li>
+<li>internal/modsdir/manifest: Fix CLI issue with Windows machines (<a class="reference external" href="https://github.com/hashicorp/terraform/issues/23865">#23865</a>)</li>
+</ul>
+<p>EXPERIMENTS:</p>
+<ul class="simple">
+<li>This release includes an <em>opt-in experiment</em> for <a class="reference external" href="https://www.terraform.io/docs/configuration/variables.html#custom-validation-rules">custom validation rules on module variables</a>.</li>
+</ul>
+<p>The feature is not yet finalized and is subject to breaking changes even in minor releases, but we're introducing it here in order to solicit feedback from module developers about which use-cases it is meeting, any use-cases it <em>isn't</em> meeting, and any situations where things feel harder to express than they might be.</p>
+<p>Due to the experimental nature of this feature, we do not recommend using it in \production\ modules yet and we require an explicit <a class="reference external" href="https://www.terraform.io/docs/configuration/terraform.html#experimental-language-features">experimental feature opt-in</a> of <code class="docutils literal"><span class="pre">variable_validation</span></code>. Depending on what feedback we receive, the design of this experimental feature may change significantly in future versions without an automatic upgrade path.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="v0.12.21.html"
+                        title="previous chapter">Release v0.12.21</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="v0.12.19.html"
+                        title="next chapter">Release v0.12.19</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/terraform/v0.12.20.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="v0.12.19.html" title="Release v0.12.19"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="v0.12.21.html" title="Release v0.12.21"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MCSPS Release Notes  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Frank Kloeker.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>

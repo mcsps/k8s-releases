@@ -1,0 +1,100 @@
+# Release v2.3.3
+
+## Important
+
+- Please review the [v2.3.0 release notes](https://github.com/rancher/rancher/releases/tag/v2.3.0) for important updates/ breaking changes if you are upgrading from a v2.2 release.
+
+- If you are using the `canal` network plug-in in a Rancher Launched Kubernetes cluster, upgrading your Kubernetes version or editing the cluster will cause the canal pods to be recreated. 
+
+The following versions are now latest and stable:
+
+ |Type | Rancher Version | Docker Tag |Helm Repo| Helm Chart Version |
+ |---|---|---|---|---|
+ | Latest | v2.3.3 | `rancher/rancher:latest` | server-charts/latest |v2.3.3 |
+ | Stable | v2.3.3 | `rancher/rancher:stable` | server-charts/stable | v2.3.3 | 
+
+Please review our [version documentation](https://rancher.com/docs/rancher/v2.x/en/installation/server-tags/) for more details on versioning and tagging conventions.
+
+## Features and Enhancements
+* **Kubernetes 1.16 is now the default version** - Kubernetes 1.16 is now the default version. Due to the deprecation of different APIs in the Kubernetes 1.16 release, please review your workloads and applications before using Kubernetes 1.16. 
+
+* **vmware vSphere driver has been updated** - When provisioning vmware vSphere clusters, many enhancements have been added to make it easier and more reliable to launch VMs:
+ README.md ci conf.py index.rst kubernetes rancher requirements.txt setup.cfg setup.py terraform tox.ini tpl Ability to use supported OSes when provisioning VMs [[#21605](https://github.com/rancher/rancher/issues/21605)]
+ README.md ci conf.py index.rst kubernetes rancher requirements.txt setup.cfg setup.py terraform tox.ini tpl Ability to create templates from a Datacenter template, the vSphere content library or clone an existing machine [[#21483](https://github.com/rancher/rancher/issues/21483)]
+ README.md ci conf.py index.rst kubernetes rancher requirements.txt setup.cfg setup.py terraform tox.ini tpl Ability to assign tags and custom attributes [[#22660](https://github.com/rancher/rancher/issues/22660)]
+ README.md ci conf.py index.rst kubernetes rancher requirements.txt setup.cfg setup.py terraform tox.ini tpl Ability to use Datastore clusters as the Datastore [[#19706](https://github.com/rancher/rancher/issues/197067)]
+ README.md ci conf.py index.rst kubernetes rancher requirements.txt setup.cfg setup.py terraform tox.ini tpl UI is populated with fields from vCenter [[#23002](https://github.com/rancher/rancher/issues/23002)]
+
+* **Admins can control all node templates [[#12186](https://github.com/rancher/rancher/issues/12186)]** - Admins can now maintain all the node templates within Rancher. When a node template owner is no longer using Rancher, the node templates created by them can be managed by admins so the cluster can continue to be updated and maintained. 
+
+* **Ability to export an existing clusters configuration into an RKE template [[#22992](https://github.com/rancher/rancher/issues/22992)]** - If you have already provisioned a RKE cluster, you can now export the cluster as a template and start managing updates to the cluster using the RKE template.
+
+## Experimental Features
+
+We have introduced the ability to turn on and off experimental components inside Rancher. As of this release, you can manage feature flags through our UI. Alternatively, you can refer to our [docs on how to turn on the features when starting Rancher](https://rancher.com/docs/rancher/v2.x/en/admin-settings/feature-flags/).
+
+* [UI for unsupported storage drivers](https://rancher.com/docs/rancher/v2.x/en/admin-settings/feature-flags/enable-not-default-storage-drivers/)
+
+## Major Bugs Fixed Since v2.3.2
+- Fixed an issue where kube-proxy couldn't support IPVS [[#13769](https://github.com/rancher/rancher/issues/13769)] 
+- Fixed an issue where you couldn't pass `extra_envs`, `extra_volumes` or `extra_volume_mounts` to the nginx ingress controller for RKE launched clusters [[#16868](https://github.com/rancher/rancher/issues/16868)]
+- Fixed an issue where the search filters under the customize schema section weren't working for openldap [[#18630](https://github.com/rancher/rancher/issues/18630)]
+- Fixed an issue where the rancher-created registry secret was missing the auth field [[#19032](https://github.com/rancher/rancher/issues/19032)]
+- Fixed an issue where when modifying apps from the catalog, the answers.yaml and edit as yaml weren't in sync [[#20087](https://github.com/rancher/rancher/issues/20087)]
+- Fixed an issue where imported RKE clusters were not able to leverage PSPs at the project level [[#21039](https://github.com/rancher/rancher/issues/21039)]
+- Fixed an issue where the UI would allow you to set PSPs on projects when PSPs weren't enabled on the cluster [[#21548](https://github.com/rancher/rancher/issues/21548)]
+- Fixed an issue where node provisioning wasn't respecting the NO_PROXY environment variable [[#21674](https://github.com/rancher/rancher/issues/21674)]
+- Fixed an issue where agent and hostname would have some issues when Amazon and AWS cloud provider was enabled [[#22849](https://github.com/rancher/rancher/issues/22849)]
+- Allow user to hide nodes that will never reach NodeReady state. Some integrations require the creation of a \dummy\ node that will not run a kubelet. [[#23394](https://github.com/rancher/rancher/issues/23394)]
+
+## Other notes
+
+### Air Gap Installations and Upgrades
+
+In v2.3.0, an air gap install no longer requires mirroring the systems chart git repo. Please follow the directions on how to [install Rancher to use the packaged systems chart](https://rancher.com/docs/rancher/v2.x/en/installation/air-gap/install-rancher).
+
+### Known Major Issues
+
+- RHEL 7.7 with selinux enabled and k8s 1.16 with RHEL Docker 1.13 is not working [[#23662](https://github.com/rancher/rancher/issues/23662)]
+- Logging - Json parsing of log data in the plug-in changed within Rancher's packaging of fluentd [[#23646](https://github.com/rancher/rancher/issues/23646)]
+- NGINX ingress controller 0.25.0 doesn't work on CPUs without SSE4.2 instruction set support [[#23307](https://github.com/rancher/rancher/issues/23307)]
+- Windows Limitations - There are a couple of known limitations with Windows due to upstream issues: 
+ - Windows pods cannot access the Kubernetes API when using VXLAN (Overlay) backend for the flannel network provider. The workaround is to use the Host Gateway (L2bridge) backend for the flannel network provider. [[#20968](https://github.com/rancher/rancher/issues/20968)]
+ - Logging only works on Host Gateway (L2bridge) backend for the flannel network provider [[#20510](https://github.com/rancher/rancher/issues/20510)]
+- Istio Limitation - Istio will not work with a restricted pod security policy [[#22469](https://github.com/rancher/rancher/issues/22469)]
+- HPA Limitation - HPA UI doesn't work on GKE clusters as GKE doesn't support the `v2beta2.autoscaling` API [[#22292](https://github.com/rancher/rancher/issues/22292)]
+- Hardening Guide Limitations - If you have used Rancher's hardening guide, there are some known issues
+ - kubectl in UI doesn't work [[#19439](https://github.com/rancher/rancher/issues/19439)]
+ - Pipelines don't work [[#22844](https://github.com/rancher/rancher/issues/22844)]
+- Adding taints to existing node templates from an upgraded setup will not be applied unless a reconcile is triggered on the cluster. When scaling up/down worker nodes, no reconcile is triggered, but scaling up/down either control plane/etcd nodes or editing a cluster (like upgrading to the latest Kubernetes version) would update to support taints on the nodes. [[#22672](https://github.com/rancher/rancher/issues/22672)]
+- Cluster alerting and logging can get stuck in `Updating` state after upgrading Rancher. Workaround steps are provided in the issue [[21480](https://github.com/rancher/rancher/issues/21480)]
+- If you have Rancher cluster with OpenStack cloud provider having LoadBalancer set, and the cluster was provisioned on version 2.2.3 or less, the upgrade to the Rancher version v2.2.4 and up will fail. Steps to mitigate can be found in the comment to [[20699](https://github.com/rancher/rancher/issues/20699)]
+- In clusters that have a Kubernetes cloud provider configured and have agents registered with hostname or FQDN (so not valid IP addresses), kube-proxy will fail to start. This can be checked in the API output for the node (`customConfig` -> `address` or `internalAddress`) [[RKE#1725](https://github.com/rancher/rke/issues/1725)]
+- Rancher log collection format changed when upgrading the Fluentd Kubernetes metadata plugin. A json log is no longer parsed and put into the log as top level keys. Issue to optionally bring back this behavior[[23646](https://github.com/rancher/rancher/issues/23646)]
+
+## Versions
+
+### Images
+- rancher/rancher:v2.3.3
+- rancher/rancher-agent:v2.3.3
+
+### Tools
+- cli - [v2.3.2](https://github.com/rancher/cli/releases/tag/v2.3.2)
+- rke - [v1.0.0](https://github.com/rancher/rke/releases/tag/v1.0.0)
+
+### Kubernetes
+
+- [1.16.3](https://github.com/rancher/hyperkube/releases/tag/v1.16.3-rancher1) 
+(default)
+- [1.15.6](https://github.com/rancher/hyperkube/releases/tag/v1.15.6-rancher1) 
+- [1.14.9](https://github.com/rancher/hyperkube/releases/tag/v1.14.9-rancher1) 
+
+## Upgrades and Rollbacks
+
+Rancher supports both upgrade and rollback. Please note the version you would like to [upgrade](https://rancher.com/docs/rancher/v2.x/en/upgrades/) or [rollback](https://rancher.com/docs/rancher/v2.x/en/backups/rollbacks/) to change the Rancher version.
+
+Please be aware that upon an upgrade to v2.3.0+, any edits to a Rancher launched Kubernetes cluster will cause all system components to restart due to added tolerations to Kubernetes system components. Plan accordingly.
+
+Recent changes to cert-manager require an upgrade if you have an HA install of Rancher using self-signed certificates. If you are using cert-manager older than v0.9.1, please see [the documentation](https://rancher.com/docs/rancher/v2.x/en/installation/options/upgrading-cert-manager/) on how to upgrade cert-manager.
+
+**Important:** When rolling back, we are expecting you to rollback to the state at the time of your upgrade. Any changes post upgrade would not be reflected. 

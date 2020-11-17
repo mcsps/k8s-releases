@@ -1,0 +1,302 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Release v2.5.2 &#8212; MCSPS Release Notes  documentation</title>
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Release v2.4.5" href="v2.4.5.html" />
+    <link rel="prev" title="Release v1.15.10" href="../kubernetes/v1.15.10.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="v2.4.5.html" title="Release v2.4.5"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../kubernetes/v1.15.10.html" title="Release v1.15.10"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MCSPS Release Notes  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="release-v2-5-2">
+<span id="release-v2-5-2"></span><h1>Release v2.5.2<a class="headerlink" href="#release-v2-5-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="important">
+<span id="important"></span><h2>Important<a class="headerlink" href="#important" title="Permalink to this headline">¶</a></h2>
+<p>The primary UI in Rancher since version 2.0 is now called Cluster Manager. Our new Cluster Explorer dashboard, experimentally released in Rancher 2.4, has graduated to GA status. There are new features only available in the new Cluster Explorer dashboard. Some of these new features are similar in functionality to existing features in the Cluster Manager and we will try to differentiate them based on where they are located in the UI.</p>
+<div class="section" id="install-upgrade-notes">
+<span id="install-upgrade-notes"></span><h3>Install/Upgrade Notes<a class="headerlink" href="#install-upgrade-notes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Rancher install or upgrade must occur with Helm 3.2.x+ due to the changes with the latest cert-manager release. <a class="reference external" href="https://github.com/rancher/rancher/issues/29213">#29213</a></li>
+<li>Rancher HA cluster should be upgraded to Kubernetes 1.17+ before installing Rancher 2.5.</li>
+<li>If using a proxy in front of an air-gapped Rancher, you must pass additional parameters to <code class="docutils literal"><span class="pre">NO_PROXY</span></code>. <a class="reference external" href="https://github.com/rancher/docs/issues/2725#issuecomment-702454584">#2725</a></li>
+<li>The <a class="reference external" href="https://rancher.com/docs/rancher/v2.x/en/admin-settings/rbac/global-permissions/#upgrading-from-rancher-with-a-hidden-local-cluster">local cluster can no longer be turned off</a>, which means all admins will have access to the local cluster. If you would like to restrict permissions to the local cluster, there is a new <a class="reference external" href="https://rancher.com/docs/rancher/v2.x/en/admin-settings/rbac/global-permissions/#restricted-admin">restricted-admin role</a> that must be used. The access to local cluster can now be disabled by setting <code class="docutils literal"><span class="pre">hide_local_cluster</span></code> to true from the v3/settings API. <a class="reference external" href="https://github.com/rancher/rancher/issues/29325">#29325</a></li>
+</ul>
+<div class="section" id="docker-install">
+<span id="docker-install"></span><h4>Docker Install<a class="headerlink" href="#docker-install" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>When starting the Rancher Docker container, the privileged flag must be used. <a class="reference external" href="https://staging.rancher.com/docs/rancher/v2.x/en/installation/other-installation-methods/single-node-docker/">See the docs for more info</a></li>
+<li>When installing in an air gap environment, you must supply a custom registries.yaml file to the Docker run command as shown in the <a class="reference external" href="https://rancher.com/docs/k3s/latest/en/installation/private-registry/">k3s docs</a>. If the registry has certs, then you will need to also supply those. <a class="reference external" href="https://github.com/rancher/rancher/issues/28969#issuecomment-694474229">#28969</a></li>
+<li>There are UI issues around startup time <a class="reference external" href="https://github.com/rancher/rancher/issues/28800">#28800</a>, <a class="reference external" href="https://github.com/rancher/rancher/issues/28798">#28798</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="duplicated-features-in-cluster-manager-and-cluster-explorer">
+<span id="duplicated-features-in-cluster-manager-and-cluster-explorer"></span><h3>Duplicated Features in Cluster Manager and Cluster Explorer<a class="headerlink" href="#duplicated-features-in-cluster-manager-and-cluster-explorer" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Only 1 version of the feature may be installed at any given time due to potentially conflicting CRDs.</li>
+<li>Each feature should only be managed by the UI that it was deployed from.</li>
+<li>If you have installed the feature in Cluster Manager, you must uninstall in Cluster Manager before attempting to install the new version in Cluster Explorer dashboard.</li>
+</ul>
+</div>
+<div class="section" id="kubernetes-1-19">
+<span id="kubernetes-1-19"></span><h3>Kubernetes 1.19<a class="headerlink" href="#kubernetes-1-19" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>For K8s 1.19 and newer, we recommend disabling firewalld as it has been found to be incompatible with various CNI plugins. <a class="reference external" href="https://github.com/rancher/rancher/issues/28840">#28840</a></li>
+<li>Certain alerts in Cluster Manager are not working with k8s 1.19 as certain metrics have changed in Kubernetes 1.19 <a class="reference external" href="https://github.com/rancher/rancher/issues/29292">#29292</a></li>
+</ul>
+</div>
+<div class="section" id="deprecated-features">
+<span id="deprecated-features"></span><h3>Deprecated Features<a class="headerlink" href="#deprecated-features" title="Permalink to this headline">¶</a></h3>
+<p>|Feature | Justification |
+|---|---|
+|<strong>Cluster Manager - Rancher Monitoring</strong> | Monitoring in Cluster Manager UI has been replaced with a new monitoring chart available in the Apps &amp; Marketplace in Cluster Explorer. |
+|<strong>Cluster Manager - Rancher Alerts and Notifiers</strong>| Alerting and notifiers functionality is now directly integrated with a new monitoring chart available in the Apps &amp; Marketplace in Cluster Explorer. |
+|<strong>Cluster Manager - Rancher Logging</strong> | Functionality replaced with a new logging solution using a new logging chart available in the Apps &amp; Marketplace in Cluster Explorer. |
+|<strong>Cluster Manager - MultiCluster Apps</strong>| Deploying to multiple clusters is now recommended to be handled with Rancher Continuous Delivery powered by Fleet available in Cluster Explorer.|
+|<strong>Cluster Manager - Kubernetes CIS 1.4 Scanning</strong>| Kubernetes CIS 1.5+ benchmark scanning is now replaced with a new scan tool deployed with a cis benchmarks chart available in the Apps &amp; Marketplace in Cluster Explorer. |
+|<strong>Cluster Manager - Rancher Pipelines</strong>| Git-based deployment pipelines is now recommend to be handled with Rancher Continuous Delivery powered by Fleet available in Cluster Explorer. |
+|<strong>Cluster Manager - Istio v1.5</strong>| The Istio project has ended support for Istio 1.5 and has recommended all users upgrade. Istio 1.7 is now available as an Istio chart in the Apps &amp; Marketplace in Cluster Explorer. |</p>
+</div>
+</div>
+<div class="section" id="versions">
+<span id="versions"></span><h2>Versions<a class="headerlink" href="#versions" title="Permalink to this headline">¶</a></h2>
+<p>The following versions are now latest and stable:</p>
+<p>|Type | Rancher Version | Docker Tag |Helm Repo| Helm Chart Version |
+|---|---|---|---|---|
+| Latest | v2.5.2 | <code class="docutils literal"><span class="pre">rancher/rancher:latest</span></code> | server-charts/latest |v2.5.2 |
+| Stable | v2.5.2 | <code class="docutils literal"><span class="pre">rancher/rancher:stable</span></code> | server-charts/stable | v2.5.2 |</p>
+<p>Please review our <a class="reference external" href="https://rancher.com/docs/rancher/v2.x/en/installation/server-tags/">version documentation</a> for more details on versioning and tagging conventions.</p>
+</div>
+<div class="section" id="experimental-features">
+<span id="experimental-features"></span><h2>Experimental Features<a class="headerlink" href="#experimental-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>OPA Gatekeeper:</strong> Users can deploy and manage the updated GA version of OPA Gatekeeper through Rancher. Users must uninstall the first Rancher installed version OPA Gatekeeper before installing this new feature.</li>
+<li><strong>RancherD:</strong> A single binary installation of Rancher. Admins create 1 or 3 hosts, and start the RancherD binary to perform all the work of installing Rancher. Check out <a class="reference external" href="https://rancher.com/blog/2020/rancherd-simplifies-rancher-deployment">this blog article</a> for more details.</li>
+</ul>
+</div>
+<div class="section" id="major-bugs-fixed-since-v2-5-1">
+<span id="major-bugs-fixed-since-v2-5-1"></span><h2>Major Bugs Fixed Since v2.5.1<a class="headerlink" href="#major-bugs-fixed-since-v2-5-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Local cluster will no longer run the cattle cluster-agent and node-agent. On upgrade to 2.5.2 these pods will get deleted. <a class="reference external" href="https://github.com/rancher/rancher/issues/29397">#29397</a></li>
+<li>If you are using Rancher to manage other Rancher instances, you can now upgrade Rancher without facing elevated CPU, load or network issues. <a class="reference external" href="https://github.com/rancher/rancher/issues/29364">#29364</a>.</li>
+<li>Cluster Explorer's Monitoring feature can now be installed on a K8s 1.16 cluster. <a class="reference external" href="https://github.com/rancher/rancher/issues/29395">#29395</a></li>
+<li>Cluster Explorer's Monitoring feature can now be installed in a hardened cluster using chart version 9.4.201 and up. <a class="reference external" href="https://github.com/rancher/rancher/issues/28536">#28536</a></li>
+<li>Istio can now be installed with the Ingress Gateway disabled. <a class="reference external" href="https://github.com/rancher/rancher/issues/29383">#29383</a></li>
+<li>Fixed a bug where Longhorn uninstallation was getting stalled. <a class="reference external" href="https://github.com/longhorn/longhorn/issues/1820">Longhorn#1820</a></li>
+<li>Rancher now supports deploying an EKS cluster in an air gap environment. <a class="reference external" href="https://github.com/rancher/rancher/issues/29070">#29070</a></li>
+<li>Fixed a bug where the Auto Replace feature of Node Pools wasn't working as expected in 2.5.1. <a class="reference external" href="https://github.com/rancher/rancher/issues/29754">#29754</a></li>
+<li>You can now run a forked build of the UI and set <code class="docutils literal"><span class="pre">ui-index</span></code> setting to <code class="docutils literal"><span class="pre">local</span></code> and force that to load. <a class="reference external" href="https://github.com/rancher/rancher/issues/29362">#29362</a></li>
+<li>Fixed a bug where Launch kubectl feature wasn't working as expected. <a class="reference external" href="https://github.com/rancher/rancher/issues/29511">#29511</a></li>
+<li>Fixed a bug where Windows worker nodes could not join a cluster with a cloud provider enabled. <a class="reference external" href="https://github.com/rancher/rancher/issues/29782">#29782</a></li>
+<li>Fixed a bug for the Rancher Terraform provider where node draining could not be disabled. <a class="reference external" href="https://github.com/rancher/terraform-provider-rancher2/issues/440">Terraform#440</a></li>
+<li>Fixed a bug where private Git repo in fleet didn't work when adding http/ssh credential in dashboard. <a class="reference external" href="https://github.com/rancher/fleet/issues/134">Fleet#134</a></li>
+</ul>
+</div>
+<div class="section" id="other-notes">
+<span id="other-notes"></span><h2>Other notes<a class="headerlink" href="#other-notes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="known-major-issues">
+<span id="known-major-issues"></span><h3>Known Major Issues<a class="headerlink" href="#known-major-issues" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Cluster Manager's Monitoring stack does not install on the local cluster if it is K3s <a class="reference external" href="https://github.com/rancher/rancher/issues/29328">#29328</a></li>
+<li>The setting to hide local cluster can only be set through API after Rancher is installed. It cannot be set during install because of an issue with Rancher API stripping quotes off of helm values. <a class="reference external" href="https://github.com/rancher/rancher/issues/29325#issuecomment-719864450">#29325</a></li>
+<li>When provisioning EKS clusters, Rancher currently relies on public endpoints to connect to the cluster. Disabling public access is not recommended if Rancher does not have network access, as it will affect Rancher's ability to communicate with the cluster.
+<a class="reference external" href="https://github.com/rancher/rancher/issues/29907">#29907</a></li>
+<li>When Project Network Isolation is turned on, upgrading from a previous Rancher version to 2.5.2 will cause an increase in CPU / Logging. Workaround is turn off PNI. <a class="reference external" href="https://github.com/rancher/rancher/issues/30052">#30052</a>. Fix is tracked in <a class="reference external" href="https://github.com/rancher/rancher/issues/30045">#30045</a>.</li>
+</ul>
+</div>
+<div class="section" id="cluster-explorer-feature-caveats-and-upgrades">
+<span id="cluster-explorer-feature-caveats-and-upgrades"></span><h3>Cluster Explorer Feature Caveats and Upgrades<a class="headerlink" href="#cluster-explorer-feature-caveats-and-upgrades" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>General</li>
+<li>Not all new features are currently installable on a hardened cluster.</li>
+<li>New features are expected to be deployed using the Helm3 CLI and not with the Rancher CLI</li>
+<li>The new Logging and Monitoring features do not yet work with windows clusters. <a class="reference external" href="https://github.com/rancher/rancher/issues/28721">#28721</a> <a class="reference external" href="https://github.com/rancher/rancher/issues/28327">#28327</a></li>
+<li>An error can be seen during cluster provisioning intermittently, and it recovers within a couple of minutes without any user intervention. <a class="reference external" href="https://github.com/rancher/rancher/issues/28836">#28836</a></li>
+<li>Rancher Backup</li>
+<li>When migrating to a cluster with the Rancher Backup feature, the server-url cannot be changed to a different location, it must continue to use the same URL.</li>
+<li>Rancher Continuous Delivery (Fleet) is not handled during backup. <a class="reference external" href="https://github.com/rancher/backup-restore-operator/issues/46">Backup#46</a></li>
+<li>Monitoring</li>
+<li>There is a known issue with using Rancher Monitoring to monitor etcd nodes in clusters that use RancherOS hosts for etcd <a class="reference external" href="https://github.com/rancher/rancher/issues/29815">#29815</a>. If your etcd plane only consists of RancherOS hosts, a workaround for this issue can be found <a class="reference external" href="https://github.com/rancher/rancher/issues/29815#issuecomment-718890687">here</a>. However there is no existing workaround for clusters that use a mix of RancherOS and non-RancherOS hosts in their etcd plane.</li>
+<li>To continue to support users who are using version 9.4.200 of the Rancher Monitoring chart, the default memory limits for k3s clusters set by the Dashboard UI have been increased to 2500Mi. This increased limit is not required for users who upgrade to chart version 9.4.201 but is recommended. <a class="reference external" href="https://github.com/rancher/rancher/issues/28787#issuecomment-693611821">#28787</a></li>
+<li>Monitoring sometimes errors on installation because it can't identify CRDs. <a class="reference external" href="https://github.com/rancher/rancher/issues/29171">#29171</a></li>
+<li>OPA Gatekeeper (Experimental)</li>
+<li>The first edition of OPA must be uninstalled before the new OPA features are installed. <a class="reference external" href="https://github.com/rancher/rancher/issues/29188">#29188</a></li>
+</ul>
+</div>
+<div class="section" id="enhancements">
+<span id="enhancements"></span><h3>Enhancements<a class="headerlink" href="#enhancements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Admins can now choose to use the CentOS/RHEL 8 operating system with Docker CE for both, the local Rancher HA cluster and clusters provisioned by Rancher. Please note this is only available for Docker CE 19.03.13 and higher. To be able to use our <a class="reference external" href="https://releases.rancher.com/install-docker/19.03.13.sh">Docker install script</a> to install Docker CE 19.03.13, if the OS image you are using contains the package <code class="docutils literal"><span class="pre">runc</span></code>, it needs to be removed manually before you can use the install script, because the <code class="docutils literal"><span class="pre">containerd</span></code> package will conflict with this package. The requirement of installing the package <code class="docutils literal"><span class="pre">iptables</span></code> is handled in the install script. <a class="reference external" href="https://github.com/rancher/rancher/issues/23045">#23045</a></li>
+<li>Stats will now aggregate resources of all nodes that do not have the following four taints instead of relying on the worker node-role label: <a class="reference external" href="https://github.com/rancher/rancher/issues/29139">#29139</a></li>
+<li>\node-role.kubernetes.io/controlplane\</li>
+<li>\node-role.kubernetes.io/control-plane\</li>
+<li>\node-role.kubernetes.io/etcd\</li>
+<li>\node-role.kubernetes.io/master\</li>
+<li>Starting with version 9.4.201 of the Rancher Monitoring chart, k3s clusters will switch to using one PushProx exporter instead of three PushProx exporters so increased memory limits are no longer required for k3s clusters. <a class="reference external" href="https://github.com/rancher/rancher/issues/29445">#29445</a></li>
+<li>Keycloak SAML provider now accepts a custom Entity ID field. <a class="reference external" href="https://github.com/rancher/rancher/issues/29212">#29212</a></li>
+<li>Logs now include data about the source. <a class="reference external" href="https://github.com/rancher/rancher/issues/29410">#29410</a></li>
+<li>UI images path can now be specified in the Rancher Helm chart. <a class="reference external" href="https://github.com/rancher/rancher/issues/29419">#29419</a></li>
+<li>Istio installer automatically adds Istio dashboards to Grafana when using Cluster Explorer's Monitoring feature. <a class="reference external" href="https://github.com/rancher/rancher/issues/28468">#28468</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="versions">
+<span id="id1"></span><h2>Versions<a class="headerlink" href="#versions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="images">
+<span id="images"></span><h3>Images<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>rancher/rancher:v2.5.2</li>
+<li>rancher/rancher-agent:v2.5.2</li>
+</ul>
+</div>
+<div class="section" id="tools">
+<span id="tools"></span><h3>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>cli - <a class="reference external" href="https://github.com/rancher/cli/releases/tag/v2.4.9">v2.4.9</a></li>
+<li>rke - <a class="reference external" href="https://github.com/rancher/rke/releases/tag/v1.2.2">v1.2.2</a></li>
+</ul>
+</div>
+<div class="section" id="kubernetes">
+<span id="kubernetes"></span><h3>Kubernetes<a class="headerlink" href="#kubernetes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/rancher/hyperkube/releases/tag/v1.19.3-rancher1">1.19.3</a> (default)</li>
+<li><a class="reference external" href="https://github.com/rancher/hyperkube/releases/tag/v1.18.10-rancher1">1.18.10</a></li>
+<li><a class="reference external" href="https://github.com/rancher/hyperkube/releases/tag/v1.17.13-rancher1">1.17.13</a></li>
+<li><a class="reference external" href="https://github.com/rancher/hyperkube/releases/tag/v1.16.15-rancher2">1.16.15</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="upgrades-and-rollbacks">
+<span id="upgrades-and-rollbacks"></span><h2>Upgrades and Rollbacks<a class="headerlink" href="#upgrades-and-rollbacks" title="Permalink to this headline">¶</a></h2>
+<p>Rancher supports both upgrade and rollback. Please note the version you would like to <a class="reference external" href="https://rancher.com/docs/rancher/v2.x/en/upgrades/">upgrade</a> or rollback to change the Rancher version. There are different rollback instructions for Rancher <a class="reference external" href="https://staging.rancher.com/docs/rancher/v2.x/en/backups/restoring-rancher/">versions 2.5.0 or newer</a> and for <a class="reference external" href="https://rancher.com/docs/rancher/v2.x/en/backups/rollbacks/">versions 2.4.x or earlier</a>.</p>
+<p><strong>Important:</strong> When rolling back, we are expecting you to rollback to the state at the time of your upgrade. Any changes post upgrade would not be reflected.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Release v2.5.2</a><ul>
+<li><a class="reference internal" href="#important">Important</a><ul>
+<li><a class="reference internal" href="#install-upgrade-notes">Install/Upgrade Notes</a><ul>
+<li><a class="reference internal" href="#docker-install">Docker Install</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#duplicated-features-in-cluster-manager-and-cluster-explorer">Duplicated Features in Cluster Manager and Cluster Explorer</a></li>
+<li><a class="reference internal" href="#kubernetes-1-19">Kubernetes 1.19</a></li>
+<li><a class="reference internal" href="#deprecated-features">Deprecated Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#versions">Versions</a></li>
+<li><a class="reference internal" href="#experimental-features">Experimental Features</a></li>
+<li><a class="reference internal" href="#major-bugs-fixed-since-v2-5-1">Major Bugs Fixed Since v2.5.1</a></li>
+<li><a class="reference internal" href="#other-notes">Other notes</a><ul>
+<li><a class="reference internal" href="#known-major-issues">Known Major Issues</a></li>
+<li><a class="reference internal" href="#cluster-explorer-feature-caveats-and-upgrades">Cluster Explorer Feature Caveats and Upgrades</a></li>
+<li><a class="reference internal" href="#enhancements">Enhancements</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#versions">Versions</a><ul>
+<li><a class="reference internal" href="#images">Images</a></li>
+<li><a class="reference internal" href="#tools">Tools</a></li>
+<li><a class="reference internal" href="#kubernetes">Kubernetes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#upgrades-and-rollbacks">Upgrades and Rollbacks</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../kubernetes/v1.15.10.html"
+                        title="previous chapter">Release v1.15.10</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="v2.4.5.html"
+                        title="next chapter">Release v2.4.5</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/rancher/v2.5.2.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="v2.4.5.html" title="Release v2.4.5"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../kubernetes/v1.15.10.html" title="Release v1.15.10"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MCSPS Release Notes  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Frank Kloeker.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>

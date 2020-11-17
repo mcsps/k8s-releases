@@ -1,0 +1,85 @@
+# Release v2.4.2
+
+**Note: There was a build issue with v2.4.1, which is why the versions have bumped to v2.4.2.**
+
+## Important
+- **Please review the [v2.4.0 release notes](https://github.com/rancher/rancher/releases/tag/v2.4.0) for important updates/ breaking changes.**
+
+- **Users using a single Docker container install** - Etcd in the Docker container has been upgraded from 3.3 to 3.4, therefore you *must* take a backup before upgrading in order to be able to roll back to a v2.3.x release. You will not be able to rollback without this backup. 
+ 
+- **Users using node pools with RHEL/CentOS nodes [[#18065](https://github.com/rancher/rancher/issues/18065)]**: The default storage driver for RHEL/CentOS nodes has been updated to `overlay2`. If your node template does not specify a storage driver, any new node will be provisioned using the new updated default (`overlay`) instead of the old default (`devicemapper`). If you need to keep using `devicemapper` as your storage driver option, edit your node template to explicitly set the storage driver as `devicemapper. 
+
+- **Users running Windows clusters [[#25582](https://github.com/rancher/rancher/issues/25582)]** - Windows has launched a security patch as of Feb 11. Before upgrading, please update your nodes to include this security patch, otherwise your upgrade will fail until the patch is applied. 
+ 
+- **Rancher launched clusters require additional 500MB space** - By default, Rancher launched clusters have enabled audit logging on the cluster. 
+
+ - **Rancher launched Kubernetes clusters behavior of upgrades have changed [[#23897](https://github.com/rancher/rancher/issues/23897)]** - Please refer to the zero downtime upgrades feature to read more about it. 
+
+## Versions
+The following versions are now latest and stable:
+
+ |Type | Rancher Version | Docker Tag |Helm Repo| Helm Chart Version |
+ |---|---|---|---|---|
+ | Latest | v2.4.2 | `rancher/rancher:latest` | server-charts/latest |v2.4.2 |
+ | Stable | v2.3.6 | `rancher/rancher:stable` | server-charts/stable | v2.3.6 | 
+
+Please review our [version documentation](https://rancher.com/docs/rancher/v2.x/en/installation/server-tags/) for more details on versioning and tagging conventions.
+
+## Features and Enhancements
+
+## Experimental Features
+
+### Feature Flags for Experimental Features
+We have the ability to turn on and off specific experimental components inside Rancher. You can manage feature flags through our UI. Certain feature flags require a Rancher restart. Alternatively, you can refer to our [docs on how to turn on the features when starting Rancher](https://rancher.com/docs/rancher/v2.x/en/admin-settings/feature-flags/).
+
+| Feature Flag | Feature Flag Name | Default Value | Available as of | Rancher Restart Required? |
+| --- | ---- | --- | --- |---|
+| Next Gen UI | `dashboard` | `true` | v2.4.0 | x |
+| New Proxy | `proxy` | `false` | v2.4.0 | |
+| [UI for unsupported storage drivers](https://rancher.com/docs/rancher/v2.x/en/admin-settings/feature-flags/enable-not-default-storage-drivers/) | `unsupported-storage-drivers` | `false` | v2.3.0 | |
+
+
+## Major Bugs Fixed Since v2.4.0
+- Fixed an issue where kubelets could restart constantly [[#26399](https://github.com/rancher/rancher/issues/26399)]
+- Fixed an issue where project owners cannot see Kubernetes resources in the UI that have capital letters (e.g PVC, configMap, statefulSet) [[#26416](https://github.com/rancher/rancher/issues/26416)]
+- Fixed an issue where you could not login when trying to set an ingress exposing different ports [[#26422](https://github.com/rancher/rancher/issues/26422)]
+
+## Other notes
+
+### Air Gap Installations and Upgrades
+
+In v2.4.0, an air gap installation no longer requires mirroring the systems chart git repo. Please follow the directions on how to [install Rancher to use the packaged systems chart](https://rancher.com/docs/rancher/v2.x/en/installation/air-gap/install-rancher).
+
+### Known Major Issues
+- Reverted a fix for when nodes removed form the UI were not able to rejoin [[#23254](https://github.com/rancher/rancher/issues/23254)]
+- During a downstream user cluster upgrade, draining starts on the next node before the current node being upgraded is completed [[#26401](https://github.com/rancher/rancher/issues/26401)]
+- During a downstream user cluster upgrade, if you have any PodDisruptionBudgets in your cluster, the drain process could get stalled [[#26400](https://github.com/rancher/rancher/issues/26400)]
+- When nodes are powered off in the cluster, the metrics server pod and coreDNS pod may not get evicted from the node and needs to be manually deleted until it's re-scheduled to an active node [[#26190](https://github.com/rancher/rancher/issues/26190), [#26191](https://github.com/rancher/rancher/issues/26190)]
+- Single node k3s clusters will keep showing `Upgrading` even after the cluster is already upgraded [[#26286](https://github.com/rancher/rancher/issues/26286)]
+- Logging doesn't work on imported k3s clusters [[#24157](https://github.com/rancher/rancher/issues/24157)]
+
+## Versions
+
+### Images
+- rancher/rancher:v2.4.2
+- rancher/rancher-agent:v2.4.2
+
+### Tools
+- cli - [v2.4.0](https://github.com/rancher/cli/releases/tag/v2.4.0)
+- rke - [v1.1.0](https://github.com/rancher/rke/releases/tag/v1.1.0)
+
+### Kubernetes
+
+- [1.17.4](https://github.com/rancher/hyperkube/releases/tag/v1.17.4-rancher1) (default)
+- [1.16.8](https://github.com/rancher/hyperkube/releases/tag/v1.16.8-rancher1) 
+- [1.15.11](https://github.com/rancher/hyperkube/releases/tag/v1.15.11-rancher1) 
+
+## Upgrades and Rollbacks
+
+Rancher supports both upgrade and rollback. Please note the version you would like to [upgrade](https://rancher.com/docs/rancher/v2.x/en/upgrades/) or [rollback](https://rancher.com/docs/rancher/v2.x/en/backups/rollbacks/) to change the Rancher version.
+
+Please be aware that upon an upgrade to v2.3.0+, any edits to a Rancher launched Kubernetes cluster will cause all system components to restart due to added tolerations to Kubernetes system components. Plan accordingly.
+
+Recent changes to cert-manager require an upgrade if you have an HA install of Rancher using self-signed certificates. If you are using cert-manager older than v0.9.1, please see [the documentation](https://rancher.com/docs/rancher/v2.x/en/installation/options/upgrading-cert-manager/) on how to upgrade cert-manager.
+
+**Important:** When rolling back, we are expecting you to rollback to the state at the time of your upgrade. Any changes post upgrade would not be reflected. 

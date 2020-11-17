@@ -1,0 +1,278 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Release v1.6.30 &#8212; MCSPS Release Notes  documentation</title>
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Release v0.13.5" href="../terraform/v0.13.5.html" />
+    <link rel="prev" title="Release v2.2.11" href="v2.2.11.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../terraform/v0.13.5.html" title="Release v0.13.5"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="v2.2.11.html" title="Release v2.2.11"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MCSPS Release Notes  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="release-v1-6-30">
+<span id="release-v1-6-30"></span><h1>Release v1.6.30<a class="headerlink" href="#release-v1-6-30" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="versions">
+<span id="versions"></span><h2>Versions<a class="headerlink" href="#versions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>rancher/server:v1.6.30</li>
+<li>rancher/agent:v1.2.11</li>
+<li>rancher/win-agent:v0.2.0</li>
+<li>rancher/lb-service-haproxy:v0.9.14</li>
+<li><a class="reference external" href="https://github.com/rancher/cli/releases/tag/v0.6.14">rancher-v0.6.14</a></li>
+<li><a class="reference external" href="https://github.com/rancher/rancher-compose/releases/tag/v0.12.5">rancher-compose-v0.12.5</a></li>
+</ul>
+<div class="section" id="supported-docker-versions">
+<span id="supported-docker-versions"></span><h3>Supported Docker Versions<a class="headerlink" href="#supported-docker-versions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Docker 1.12.3-1.12.6</li>
+<li>Docker 1.13.1</li>
+<li>Docker 17.03-ce/ee</li>
+<li>Docker 17.06-ce/ee</li>
+<li>Docker 17.09-ce/ee</li>
+<li>Docker 17.12-ce/ee</li>
+<li>Docker 18.03-ce/ee</li>
+<li>Docker 18.06-ce/ee</li>
+<li>Docker 18.09-ce/ee</li>
+<li>Docker 19.03-ce/ee</li>
+</ul>
+<blockquote>
+<div>Note: Kubernetes 1.11/1.10/1.9 supports Docker 1.12.6, 1.13.1 and 17.03.2.</div></blockquote>
+</div>
+<div class="section" id="kubernetes-versions">
+<span id="kubernetes-versions"></span><h3>Kubernetes Versions<a class="headerlink" href="#kubernetes-versions" title="Permalink to this headline">¶</a></h3>
+<p>List of images required to launch Kubernetes template:</p>
+<div class="section" id="k8s-1-11-9">
+<span id="k8s-1-11-9"></span><h4>k8s 1.11.9<a class="headerlink" href="#k8s-1-11-9" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>rancher/k8s:v1.11.9-rancher1-1</li>
+<li>rancher/etcd:v2.3.7-17</li>
+<li>rancher/kubectld:v0.8.8.1</li>
+<li>rancher/etc-host-updater:v0.0.3</li>
+<li>rancher/kubernetes-agent:v0.6.9</li>
+<li>rancher/kubernetes-auth:v0.0.8</li>
+<li>rancher/lb-service-rancher:v0.9.9</li>
+<li>busybox</li>
+</ul>
+</div>
+<div class="section" id="k8s-1-12-10">
+<span id="k8s-1-12-10"></span><h4>k8s 1.12.10<a class="headerlink" href="#k8s-1-12-10" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>rancher/k8s:v1.12.10-rancher1-1</li>
+<li>rancher/etcd:v2.3.7-17</li>
+<li>rancher/kubectld:v0.8.11</li>
+<li>rancher/etc-host-updater:v0.0.3</li>
+<li>rancher/kubernetes-agent:v0.6.9</li>
+<li>rancher/kubernetes-auth:v0.0.8</li>
+<li>rancher/lb-service-rancher:v0.9.13</li>
+<li>busybox</li>
+</ul>
+<p>For the list of versions for the <a class="reference external" href="http://rancher.com/docs/rancher/v1.6/en/kubernetes/addons/">Kubernetes add-ons</a> embedded in the Rancher Kubernetes images, please refer to the <a class="reference external" href="https://github.com/rancher/kubernetes-package/blob/k8s-v1.11/addon-templates/README.md">kubernetes-package repo</a> for the specific images and versions.</p>
+<blockquote>
+<div><strong>Note:</strong> If you have configured the <code class="docutils literal"><span class="pre">aws</span></code> cloud provider, tagging the cluster resources with a <code class="docutils literal"><span class="pre">ClusterID</span></code> is now required as of Kubernetes 1.10+. You should <a class="reference external" href="https://rancher.com/docs/rancher/v1.6/en/kubernetes/providers/#configuring-the-clusterid">add tags to your EC2 instances</a> before launching Kubernetes.</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="rancher-server-tags">
+<span id="rancher-server-tags"></span><h2>Rancher Server Tags<a class="headerlink" href="#rancher-server-tags" title="Permalink to this headline">¶</a></h2>
+<p>Rancher server has 2 different tags. For each major release tag, we will provide documentation for the specific version.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">rancher/server:latest</span></code> tag will be our latest development builds. These builds will have been validated through our CI automation framework. These releases are not meant for deployment in production.</li>
+<li><code class="docutils literal"><span class="pre">rancher/server:stable</span></code> tag will be our latest stable release builds. This tag is the version that we recommend for production.</li>
+</ul>
+<p>Please do not use releases with a <code class="docutils literal"><span class="pre">rc{n}</span></code> suffix. These <code class="docutils literal"><span class="pre">rc</span></code> builds are meant for the Rancher team to test builds.</p>
+<div class="section" id="beta-v1-6-30-rancher-server-latest">
+<span id="beta-v1-6-30-rancher-server-latest"></span><h3>Beta - v1.6.30 - <code class="docutils literal"><span class="pre">rancher/server:latest</span></code><a class="headerlink" href="#beta-v1-6-30-rancher-server-latest" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="stable-v1-6-30-rancher-server-stable">
+<span id="stable-v1-6-30-rancher-server-stable"></span><h3>Stable - v1.6.30 - <code class="docutils literal"><span class="pre">rancher/server:stable</span></code><a class="headerlink" href="#stable-v1-6-30-rancher-server-stable" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="major-changes-since-v1-6-29">
+<span id="major-changes-since-v1-6-29"></span><h2>Major Changes since v1.6.29<a class="headerlink" href="#major-changes-since-v1-6-29" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Updated HAProxy to the latest version (<code class="docutils literal"><span class="pre">v2.1.4</span></code>) in <code class="docutils literal"><span class="pre">rancher/lb-service-haproxy:v0.9.14</span></code> to address <a class="reference external" href="https://nvd.nist.gov/vuln/detail/CVE-2020-11100">CVE-2020-11100</a> in HAProxy.</li>
+</ul>
+</div>
+<div class="section" id="rancher-cli-downloads">
+<span id="rancher-cli-downloads"></span><h2><a class="reference external" href="http://docs.rancher.com/rancher/v1.6/en/cli/">Rancher CLI</a> Downloads<a class="headerlink" href="#rancher-cli-downloads" title="Permalink to this headline">¶</a></h2>
+<p>https://github.com/rancher/cli/releases/tag/v0.6.14</p>
+</div>
+<div class="section" id="important-upgrade">
+<span id="important-upgrade"></span><h2>Important - Upgrade<a class="headerlink" href="#important-upgrade" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Users on a version prior to Rancher v1.5.0:</strong> We will automatically upgrade the <code class="docutils literal"><span class="pre">network-services</span></code> infrastructure stack as without this upgrade, your release will not work.</li>
+<li><strong>Users on a version prior to Rancher v1.6.0</strong>: If you make any changes to the default Rancher library setting for your catalogs and then roll back, you will need to reset the branch used for the default Rancher library under <strong>Admin</strong> -&gt; <strong>Settings</strong> -&gt; <strong>Catalog</strong>. The current default branch is <code class="docutils literal"><span class="pre">v1.6-release</span></code>, but the old default branch is <code class="docutils literal"><span class="pre">master</span></code>.</li>
+<li><strong>Rollback caveats</strong>
+README.md ci conf.py index.rst kubernetes rancher requirements.txt setup.cfg setup.py terraform tox.ini tpl If you have upgraded to Kubernetes <code class="docutils literal"><span class="pre">v1.10.5-rancher4</span></code> or <code class="docutils literal"><span class="pre">v1.11.1-rancher1-3</span></code> or any version after these, there are some manual steps that need to occur to roll back to any version prior to these ones due to the updates for having etcd cluster with TLS enabled.</li>
+</ul>
+<ol class="simple">
+<li>Stop the <code class="docutils literal"><span class="pre">kube-api</span></code> service</li>
+<li>Exec into one of the <code class="docutils literal"><span class="pre">etcd</span></code> containers</li>
+<li>Run the following command. The output is in the following format: <code class="docutils literal"><span class="pre">etcd_memeber_id:</span> <span class="pre">member_name</span> <span class="pre">peerURLs</span> <span class="pre">clientURLs</span></code>.</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ etcdctl member list
+</pre></div>
+</div>
+<ol class="simple">
+<li>You will need to run the following commands to update the cluster peer URLs from HTTPS to HTTP, and from names to IPs</li>
+</ol>
+<ul class="simple">
+<li>replace <code class="docutils literal"><span class="pre">-</span></code> with <code class="docutils literal"><span class="pre">.</span></code> in the member_name to get the IP</li>
+<li>run the member update command in the following format:</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">etcdctl</span> <span class="n">member</span> <span class="n">update</span> <span class="o">&lt;</span><span class="n">etcd_member_id</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nb">list</span> <span class="n">of</span> <span class="n">comma</span> <span class="n">separated</span> <span class="n">peerURL</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li>After <code class="docutils literal"><span class="pre">etcd</span></code> has been updated, proceed with typical rollback steps.</li>
+</ol>
+<p>README.md ci conf.py index.rst kubernetes rancher requirements.txt setup.cfg setup.py terraform tox.ini tpl <strong>Steps to Rollback</strong>:</p>
+<ol class="simple">
+<li>In the upgraded version the <strong>Admin</strong> -&gt; <strong>Advanced Settings</strong> -&gt; API values, update the <code class="docutils literal"><span class="pre">upgrade.manager</span></code> value to <code class="docutils literal"><span class="pre">all</span></code>.</li>
+<li>\Upgrade\ Rancher server but pointing to the older version of Rancher (v1.6.18). This should include backing up your database and launching Rancher to point to your current database.</li>
+<li>Once Rancher starts up again, all infrastructure stacks will automatically rollback to the applicable version in v1.6.18.</li>
+<li>After your setup is back to its original state, update the <code class="docutils literal"><span class="pre">upgrade.manager</span></code> value back to the original value that you had (either <code class="docutils literal"><span class="pre">mandatory</span></code> or <code class="docutils literal"><span class="pre">none</span></code>).</li>
+</ol>
+<blockquote>
+<div><strong>Note on Rollback:</strong> If you are rolling back and have authentication enabled using Active Directory, any new users/groups added to site access on the Access Control page after the upgrade will not be retained upon rolling back. Any users added before the upgrade will continue to remain. [#9850]</div></blockquote>
+</div>
+<div class="section" id="important-please-read-if-you-currently-have-authentication-enabled-using-active-directory-with-tls-enabled-prior-to-upgrading-to-v1-6-10-or-a-higher-version">
+<span id="important-please-read-if-you-currently-have-authentication-enabled-using-active-directory-with-tls-enabled-prior-to-upgrading-to-v1-6-10-or-a-higher-version"></span><h2>Important - Please read if you currently have authentication enabled using Active Directory with TLS enabled prior to upgrading to v1.6.10 or a higher version.<a class="headerlink" href="#important-please-read-if-you-currently-have-authentication-enabled-using-active-directory-with-tls-enabled-prior-to-upgrading-to-v1-6-10-or-a-higher-version" title="Permalink to this headline">¶</a></h2>
+<p>Starting with v1.6.8, Rancher has updated the Active Directory auth plugin and moved it into the new authentication framework. We have also further secured the AD+TLS option by ensuring that the hostname/IP of the AD server matches with the hostname/IP of the TLS certificate. Please see [<a class="reference external" href="https://github.com/rancher/rancher/issues/9459">#9459</a>] for details.</p>
+<p>Due to this new check, you should be aware that if the hostname/IP does not match your TLS certificate, you will be locked out of your Rancher server if you do not correct this prior to upgrading. To ensure you have no issues with the upgrade, please execute the following to verify your configuration is correct.</p>
+<ul class="simple">
+<li>Verify the hostname/IP you used for your AD configuration. To do this, log into Rancher using a web browser as an admin and click <strong>Admin</strong> -&gt; <strong>Access Control</strong>. Note the <code class="docutils literal"><span class="pre">server</span></code> field to determine your configured hostname/IP for your AD server.</li>
+<li>To verify your the configure hostname/IP for your TLS cert, you can execute the following command to determine the CN attribute:
+<code class="docutils literal"><span class="pre">openssl</span> <span class="pre">s_client</span> <span class="pre">-showcerts</span> <span class="pre">-connect</span> <span class="pre">domain.example.com:443</span></code>
+You should see something like:
+<code class="docutils literal"><span class="pre">subject=/OU=Domain</span> <span class="pre">Control</span> <span class="pre">Validated/CN=domain.example.com</span></code>
+Verify that the CN attribute matches with your configured <code class="docutils literal"><span class="pre">server</span></code> field from the above step.</li>
+</ul>
+<p>If the fields match, you are good to go. Nothing else is required.</p>
+<p>If the fields <strong><em>do not match</em></strong>, please execute the following steps to correct it.</p>
+<ul class="simple">
+<li>Open a web browser and go to Rancher's <code class="docutils literal"><span class="pre">settings</span></code> URL. This can be done by logging into Rancher as an admin and click <strong>API</strong>-&gt;<strong>Keys</strong>. You should see an <code class="docutils literal"><span class="pre">Endpoint</span> <span class="pre">(v2-beta)</span></code> field. Take the value of that field and append <code class="docutils literal"><span class="pre">/settings</span></code>. The final URL should look something like <code class="docutils literal"><span class="pre">my.rancher.url:8080/v2-beta/settings</span></code>. Launch this URL in your browser and you should see Rancher's API browser.</li>
+<li>Search for <code class="docutils literal"><span class="pre">api.auth.ldap.server</span></code> and click that setting to edit it. On the top right, you should be able to click an <code class="docutils literal"><span class="pre">edit</span></code> button. Change the value of that to match the hostname/IP of the value found in your cert as identified by the CN attribute and click <strong>Show Request</strong>-&gt;<strong>Send Request</strong> to persist the value into Rancher's DB. The response should show your new value.</li>
+</ul>
+<p>Once this is completed and the hostname/IP matches your certs' CN attribute, you should have no issues with AD login after upgrading to 1.6.8.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Release v1.6.30</a><ul>
+<li><a class="reference internal" href="#versions">Versions</a><ul>
+<li><a class="reference internal" href="#supported-docker-versions">Supported Docker Versions</a></li>
+<li><a class="reference internal" href="#kubernetes-versions">Kubernetes Versions</a><ul>
+<li><a class="reference internal" href="#k8s-1-11-9">k8s 1.11.9</a></li>
+<li><a class="reference internal" href="#k8s-1-12-10">k8s 1.12.10</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#rancher-server-tags">Rancher Server Tags</a><ul>
+<li><a class="reference internal" href="#beta-v1-6-30-rancher-server-latest">Beta - v1.6.30 - <code class="docutils literal"><span class="pre">rancher/server:latest</span></code></a></li>
+<li><a class="reference internal" href="#stable-v1-6-30-rancher-server-stable">Stable - v1.6.30 - <code class="docutils literal"><span class="pre">rancher/server:stable</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#major-changes-since-v1-6-29">Major Changes since v1.6.29</a></li>
+<li><a class="reference internal" href="#rancher-cli-downloads">Rancher CLI Downloads</a></li>
+<li><a class="reference internal" href="#important-upgrade">Important - Upgrade</a></li>
+<li><a class="reference internal" href="#important-please-read-if-you-currently-have-authentication-enabled-using-active-directory-with-tls-enabled-prior-to-upgrading-to-v1-6-10-or-a-higher-version">Important - Please read if you currently have authentication enabled using Active Directory with TLS enabled prior to upgrading to v1.6.10 or a higher version.</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="v2.2.11.html"
+                        title="previous chapter">Release v2.2.11</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../terraform/v0.13.5.html"
+                        title="next chapter">Release v0.13.5</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/rancher/v1.6.30.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../terraform/v0.13.5.html" title="Release v0.13.5"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="v2.2.11.html" title="Release v2.2.11"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MCSPS Release Notes  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Frank Kloeker.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+# Release v1.15.9
+See [kubernetes-announce@](https://groups.google.com/forum/#!forum/kubernetes-announce) and [CHANGELOG-1.15.md](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.15.md#v1159) for details.
+
+SHA256 for `kubernetes.tar.gz`: `3f2f0331229e3e226ce60f7ed986ca78c9ac15a94a84a7ca584c3b6eda84c9c0`
+SHA512 for `kubernetes.tar.gz`: `0dddd6fe4c0912340f36bb6f09769e5ce2ede2879324973ab574bf92563e948b9a18efaa6ddf50a16e4001a16500463a2c6fa604fd2c4275c7d1aa141a350bbf`
+
+Additional binary downloads are linked in the [CHANGELOG-1.15.md](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.15.md#downloads-for-v1159).

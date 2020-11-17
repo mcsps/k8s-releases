@@ -1,6 +1,6 @@
 
-Terraform
-=========
+Cert-Manager
+============
 
 .. toctree::
    :maxdepth: 1

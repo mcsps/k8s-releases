@@ -1,0 +1,187 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Release v2.2.11 &#8212; MCSPS Release Notes  documentation</title>
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Release v1.6.30" href="v1.6.30.html" />
+    <link rel="prev" title="Release v2.2.12" href="v2.2.12.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="v1.6.30.html" title="Release v1.6.30"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="v2.2.12.html" title="Release v2.2.12"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MCSPS Release Notes  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="release-v2-2-11">
+<span id="release-v2-2-11"></span><h1>Release v2.2.11<a class="headerlink" href="#release-v2-2-11" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="important-notes">
+<span id="important-notes"></span><h2>Important notes<a class="headerlink" href="#important-notes" title="Permalink to this headline">¶</a></h2>
+<p>Added Kubernetes v1.14.10 and k8s v1.15.11.</p>
+<div class="section" id="certificate-expiry-on-rancher-provisioned-clusters">
+<span id="certificate-expiry-on-rancher-provisioned-clusters"></span><h3>Certificate expiry on Rancher provisioned clusters<a class="headerlink" href="#certificate-expiry-on-rancher-provisioned-clusters" title="Permalink to this headline">¶</a></h3>
+<p>In Rancher 2.0 and 2.1, the auto generated certificates for Rancher provisioned clusters have 1 year of expiry. It means if you created a Rancher provisioned cluster about 1 year ago, you need to rotate the certificates, otherwise the cluster will go into a bad state when the certificate expires. In Rancher 2.2.x, the rotation can be performed from Rancher UI, more details are <a class="reference external" href="https://rancher.com/docs/rancher/v2.x/en/cluster-admin/certificate-rotation/">here</a>.</p>
+</div>
+<div class="section" id="additional-steps-required-for-air-gap-installations-and-upgrades">
+<span id="additional-steps-required-for-air-gap-installations-and-upgrades"></span><h3>Additional Steps Required for Air Gap Installations and Upgrades<a class="headerlink" href="#additional-steps-required-for-air-gap-installations-and-upgrades" title="Permalink to this headline">¶</a></h3>
+<p>In v2.2.0, we've introduced a \system catalog\ for managing micro-services that Rancher deploys for certain features such as Global DNS, Alerts, and Monitoring. These additional steps are documented as part of <a class="reference external" href="https://rancher.com/docs/rancher/v2.x/en/installation/air-gap-high-availability/">air gap installation instructions</a>.</p>
+</div>
+<div class="section" id="known-major-issues">
+<span id="known-major-issues"></span><h3>Known Major Issues<a class="headerlink" href="#known-major-issues" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Cluster alerting and logging can get stuck in Updating state after upgrading Rancher. Workaround steps are provided in the issue [<a class="reference external" href="https://github.com/rancher/rancher/issues/21480">21480</a>]</li>
+<li>Certificate rotate for Rancher provisioned clusters will not work for the clusters which certificates had expired on Rancher versions v2.0.13 and earlier on 2.0.x release line, and 2.1.8 or earlier on 2.1.x release line. The issue won't exist if the certificates expired on later versions of Rancher. Steps to workaround can be found in comments to [<a class="reference external" href="https://github.com/rancher/rancher/issues/20381">20381</a>]</li>
+<li>Catalog app revisions are not visible to the regular user; as a result regular user is not able to rollback the app [<a class="reference external" href="https://github.com/rancher/rancher/issues/20204">20204</a>]</li>
+<li>Global DNS entries are not properly updated when a node that was hosting an associated ingress becomes unavailable. A records to the unavailable hosts will remain on the ingress and in the DNS entry [<a class="reference external" href="https://github.com/rancher/rancher/issues/18932">#18932</a>]</li>
+<li>If you have Rancher cluster with OpenStack cloud provider having LoadBalancer set, and the cluster was provisioned on version 2.2.3 or less, the upgrade to the Rancher version v2.2.4 and up will fail. Steps to mitigate can be found in the comment to [<a class="reference external" href="https://github.com/rancher/rancher/issues/20699">20699</a>]</li>
+</ul>
+</div>
+</div>
+<div class="section" id="versions">
+<span id="versions"></span><h2>Versions<a class="headerlink" href="#versions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="images">
+<span id="images"></span><h3>Images<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>rancher/rancher:v2.2.11</li>
+<li>rancher/rancher-agent:v2.2.11</li>
+</ul>
+</div>
+<div class="section" id="tools">
+<span id="tools"></span><h3>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>cli - <a class="reference external" href="https://github.com/rancher/cli/releases/tag/v2.2.0">v2.2.0</a></li>
+<li>rke - <a class="reference external" href="https://github.com/rancher/rke/releases/tag/v0.2.10">v0.2.10</a></li>
+</ul>
+</div>
+<div class="section" id="system-charts-branch-for-air-gap-installs">
+<span id="system-charts-branch-for-air-gap-installs"></span><h3>System Charts Branch - For air gap installs<a class="headerlink" href="#system-charts-branch-for-air-gap-installs" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>system charts branch - <a class="reference external" href="https://github.com/rancher/system-charts/tree/release-v2.2"><code class="docutils literal"><span class="pre">release-v2.2</span></code></a> - This is the branch used to populate the catalog items required for tools such as monitoring, logging, alerting and global DNS. To be able to use these features in an air gap install, you will need to mirror the <code class="docutils literal"><span class="pre">system-charts</span></code> repository to a location in your network that Rancher can reach and configure Rancher to use that repository.</li>
+</ul>
+</div>
+<div class="section" id="kubernetes">
+<span id="kubernetes"></span><h3>Kubernetes<a class="headerlink" href="#kubernetes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/rancher/hyperkube/releases/tag/v1.13.12-rancher1">1.13.12</a></li>
+<li><a class="reference external" href="https://github.com/rancher/hyperkube/releases/tag/v1.14.10-rancher1">1.14.10</a></li>
+<li><a class="reference external" href="https://github.com/rancher/hyperkube/releases/tag/v1.15.11-rancher1">1.15.11</a>(default)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="upgrades-and-rollbacks">
+<span id="upgrades-and-rollbacks"></span><h2>Upgrades and Rollbacks<a class="headerlink" href="#upgrades-and-rollbacks" title="Permalink to this headline">¶</a></h2>
+<p>Rancher supports both upgrade and rollback starting with v2.0.2. Please note the version you would like to <a class="reference external" href="https://rancher.com/docs/rancher/v2.x/en/upgrades/">upgrade</a> or <a class="reference external" href="https://rancher.com/docs/rancher/v2.x/en/backups/rollbacks/">rollback</a> to change the Rancher version.</p>
+<p><strong>Note:</strong> When rolling back, we are expecting you to rollback to the state at the time of your upgrade. Any changes post upgrade would not be reflected.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Release v2.2.11</a><ul>
+<li><a class="reference internal" href="#important-notes">Important notes</a><ul>
+<li><a class="reference internal" href="#certificate-expiry-on-rancher-provisioned-clusters">Certificate expiry on Rancher provisioned clusters</a></li>
+<li><a class="reference internal" href="#additional-steps-required-for-air-gap-installations-and-upgrades">Additional Steps Required for Air Gap Installations and Upgrades</a></li>
+<li><a class="reference internal" href="#known-major-issues">Known Major Issues</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#versions">Versions</a><ul>
+<li><a class="reference internal" href="#images">Images</a></li>
+<li><a class="reference internal" href="#tools">Tools</a></li>
+<li><a class="reference internal" href="#system-charts-branch-for-air-gap-installs">System Charts Branch - For air gap installs</a></li>
+<li><a class="reference internal" href="#kubernetes">Kubernetes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#upgrades-and-rollbacks">Upgrades and Rollbacks</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="v2.2.12.html"
+                        title="previous chapter">Release v2.2.12</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="v1.6.30.html"
+                        title="next chapter">Release v1.6.30</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/rancher/v2.2.11.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="v1.6.30.html" title="Release v1.6.30"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="v2.2.12.html" title="Release v2.2.12"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MCSPS Release Notes  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Frank Kloeker.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>

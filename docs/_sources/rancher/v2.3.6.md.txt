@@ -1,0 +1,94 @@
+# Release v2.3.6
+
+## Important
+
+- Please review the [v2.3.0 release notes](https://github.com/rancher/rancher/releases/tag/v2.3.0) for important updates/ breaking changes if you are upgrading from a v2.2 release.
+
+The following versions are now latest and stable:
+
+ |Type | Rancher Version | Docker Tag |Helm Repo| Helm Chart Version |
+ |---|---|---|---|---|
+ | Latest | v2.3.6 | `rancher/rancher:latest` | server-charts/latest |v2.3.6 |
+ | Stable | v2.3.6 | `rancher/rancher:stable` | server-charts/stable | v2.3.6 | 
+
+Please review our [version documentation](https://rancher.com/docs/rancher/v2.x/en/installation/server-tags/) for more details on versioning and tagging conventions.
+
+## Features and Enhancements
+
+- **Calico and Canal upgraded to v3.13.0 for latest Kubernetes versions**: For the latest Kubernetes versions available in this release (1.15.11, 1.16.8 and 1.17.4), Calico images for Canal and Calico network provider are updated to v3.13.0. This will be automatically applied when you choose to upgrade your cluster to the latest k8s version.
+- **Istio 1.4.6**: Istio 1.4.6 is available as of v2.3.4, but is now available for upgrade users as the bundled charts in Rancher. 
+- **Amazon EC2 nodes with EBS volume encryption at launch time**: Ability to configure EBS volume encryption at launch time when configuring a Node Template using the EC2 node driver.
+
+## Experimental Features 
+
+We have the ability to turn on and off experimental components inside Rancher. You can manage feature flags through our UI. Alternatively, you can refer to our [docs on how to turn on the features when starting Rancher](https://rancher.com/docs/rancher/v2.x/en/admin-settings/feature-flags/).
+
+* [UI for unsupported storage drivers](https://rancher.com/docs/rancher/v2.x/en/admin-settings/feature-flags/enable-not-default-storage-drivers/)
+
+## Major Bugs Fixed Since v2.3.5
+
+- Fixed an issue where Rancher agent did not use the proxy environment configured in callback to Rancher [[#24876](https://github.com/rancher/rancher/issues/24876)]
+- Fixed an issue where Kubernetes version gets upgraded or networkpolicy configuration gets removed when updating a cluster via the API [[#23759](https://github.com/rancher/rancher/issues/23759)] / [[#24982](https://github.com/rancher/rancher/issues/24982)]
+- Fixed an issue where panics were seen in monitoring handler [[#25203](https://github.com/rancher/rancher/issues/25203)]
+- Fixed an issue where Rancher did not set the Secure attribute when returning set-cookie 
+- Fixed an issue where Calico/Canal flexvol driver was hardcoded to use hostPath that is read-only on some OS (for example, CoreOS) [[#1744](https://github.com/rancher/rke/issues/1744)]
+- Fixed an issue where pods would randomly get IP address from the Docker bridge network [[#23284](https://github.com/rancher/rancher/issues/23284)]
+- Fixed an issue where it was not possible to install Rancher using Helm when configuring auditLog [[#25312](https://github.com/rancher/rancher/issues/25312)]
+- Fixed an issue where nodes created using the vSphere driver were not created on the configured host [[#25052](https://github.com/rancher/rancher/issues/25052)]
+- Fixed an issue where adding an etcd or controlplane node with the labels parameters would reset labels on other nodes [[#25144](https://github.com/rancher/rancher/issues/25144)]
+- Fixed an issue where logging would not get retrieved from start of file [[#25048](https://github.com/rancher/rancher/issues/25048)]
+- Fixed an issue where vSphere vApp options were not saved correctly [[#20209](https://github.com/rancher/rancher/issues/20209)]
+- Fixed an issue where RHEL 7.7 with selinux enabled and k8s 1.16 with RHEL Docker 1.13 was not working [[#23662](https://github.com/rancher/rancher/issues/23662)]
+- Fixed an issue where 'Encrypt EBS Volume' in EC2 node template doesn't work on upgraded Rancher set up [[#25546](https://github.com/rancher/rancher/issues/25546)]
+- Fixed an issue where it was not possible to provision Kubernetes 1.14 with Calico as network provider [[#25278](https://github.com/rancher/rancher/issues/25278)
+- Fixed an issue where Gitlab integration for pipeline fails [[#25975](https://github.com/rancher/rancher/issues/25975)]
+- Fixed an issue where the UI would display a note for EKS clusters when creating an AKS cluster [[#25120](https://github.com/rancher/rancher/issues/25120)]
+- Fixed an issue where the UI would display `*%` characters around a configured registry address [[#25069](https://github.com/rancher/rancher/issues/25069)]
+
+## Other notes
+
+### Air Gap Installations and Upgrades
+
+In v2.3.0, an air gap install no longer requires mirroring the systems chart git repo. Please follow the directions on how to [install Rancher to use the packaged systems chart](https://rancher.com/docs/rancher/v2.x/en/installation/air-gap/install-rancher).
+
+### Known Major Issues
+
+- NGINX ingress controller 0.25.0 doesn't work on CPUs without SSE4.2 instruction set support [[#23307](https://github.com/rancher/rancher/issues/23307)]
+- Windows Limitations - There are a couple of known limitations with Windows due to upstream issues: 
+ - Windows pods cannot access the Kubernetes API when using VXLAN (Overlay) backend for the flannel network provider. The workaround is to use the Host Gateway (L2bridge) backend for the flannel network provider. [[#20968](https://github.com/rancher/rancher/issues/20968)]
+ - Logging only works on Host Gateway (L2bridge) backend for the flannel network provider [[#20510](https://github.com/rancher/rancher/issues/20510)]
+- HPA Limitation - HPA UI doesn't work on GKE clusters as GKE doesn't support the `v2beta2.autoscaling` API [[#22292](https://github.com/rancher/rancher/issues/22292)]
+- Hardening Guide Limitations - If you have used Rancher's hardening guide, there are some known issues
+ - kubectl in UI doesn't work [[#19439](https://github.com/rancher/rancher/issues/19439)]
+ - Pipelines don't work [[#22844](https://github.com/rancher/rancher/issues/22844)]
+- Adding taints to existing node templates from an upgraded setup will not be applied unless a reconcile is triggered on the cluster. When scaling up/down worker nodes, no reconcile is triggered, but scaling up/down either control plane/etcd nodes or editing a cluster (like upgrading to the latest Kubernetes version) would update to support taints on the nodes. [[#22672](https://github.com/rancher/rancher/issues/22672)]
+- Cluster alerting and logging can get stuck in `Updating` state after upgrading Rancher. Workaround steps are provided in the issue [[21480](https://github.com/rancher/rancher/issues/21480)]
+- If you have Rancher cluster with OpenStack cloud provider having LoadBalancer set, and the cluster was provisioned on version 2.2.3 or less, the upgrade to the Rancher version v2.2.4 and up will fail. Steps to mitigate can be found in the comment to [[20699](https://github.com/rancher/rancher/issues/20699)]
+- In clusters that have a Kubernetes cloud provider configured and have agents registered with hostname or FQDN (so not valid IP addresses), kube-proxy will fail to start. This can be checked in the API output for the node (`customConfig` -> `address` or `internalAddress`) [[RKE#1725](https://github.com/rancher/rke/issues/1725)]
+- Rancher log collection format changed when upgrading the Fluentd Kubernetes metadata plugin. A json log is no longer parsed and put into the log as top level keys. Issue to optionally bring back this behavior[[23646](https://github.com/rancher/rancher/issues/23646)]
+
+## Versions
+
+### Images
+- rancher/rancher:v2.3.6
+- rancher/rancher-agent:v2.3.6
+
+### Tools
+- cli - [v2.3.2](https://github.com/rancher/cli/releases/tag/v2.3.2)
+- rke - [v1.0.6](https://github.com/rancher/rke/releases/tag/v1.0.6)
+
+### Kubernetes
+
+- [1.17.4](https://github.com/rancher/hyperkube/releases/tag/v1.17.4-rancher1) (default)
+- [1.16.8](https://github.com/rancher/hyperkube/releases/tag/v1.16.8-rancher1) 
+- [1.15.11](https://github.com/rancher/hyperkube/releases/tag/v1.15.11-rancher1) 
+
+## Upgrades and Rollbacks
+
+Rancher supports both upgrade and rollback. Please note the version you would like to [upgrade](https://rancher.com/docs/rancher/v2.x/en/upgrades/) or [rollback](https://rancher.com/docs/rancher/v2.x/en/backups/rollbacks/) to change the Rancher version.
+
+Please be aware that upon an upgrade to v2.3.0+, any edits to a Rancher launched Kubernetes cluster will cause all system components to restart due to added tolerations to Kubernetes system components. Plan accordingly.
+
+Recent changes to cert-manager require an upgrade if you have an HA install of Rancher using self-signed certificates. If you are using cert-manager older than v0.9.1, please see [the documentation](https://rancher.com/docs/rancher/v2.x/en/installation/options/upgrading-cert-manager/) on how to upgrade cert-manager.
+
+**Important:** When rolling back, we are expecting you to rollback to the state at the time of your upgrade. Any changes post upgrade would not be reflected. 

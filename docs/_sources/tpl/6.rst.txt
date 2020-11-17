@@ -1,6 +1,6 @@
 
-Terraform
-=========
+External DNS
+============
 
 .. toctree::
    :maxdepth: 1

@@ -1,0 +1,123 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Release v0.12.19 &#8212; MCSPS Release Notes  documentation</title>
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Release v1.0.4" href="../cert-manager/v1.0.4.html" />
+    <link rel="prev" title="Release v0.12.20" href="v0.12.20.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../cert-manager/v1.0.4.html" title="Release v1.0.4"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="v0.12.20.html" title="Release v0.12.20"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MCSPS Release Notes  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="release-v0-12-19">
+<span id="release-v0-12-19"></span><h1>Release v0.12.19<a class="headerlink" href="#release-v0-12-19" title="Permalink to this headline">¶</a></h1>
+<p>ENHANCEMENTS:</p>
+<ul class="simple">
+<li>command/init: Cache Terraform Registry metadata responses when handling multiple references to the same module. (<a class="reference external" href="https://github.com/hashicorp/terraform/issues/23727">#23727</a>)</li>
+<li>command/state-mv: Detect and remove references elsewhere in the state to the source address in a <code class="docutils literal"><span class="pre">terraform</span> <span class="pre">state</span> <span class="pre">mv</span></code> operation. This does not affect any current operations but will cause the resulting state snapshot to be different than before, and a future version of Terraform may make use of this additional precision. (<a class="reference external" href="https://github.com/hashicorp/terraform/issues/23791">#23791</a>)</li>
+</ul>
+<p>BUG FIXES:</p>
+<ul class="simple">
+<li>command/init: Fix an issue with via an update to go-getter where modules would fail to download from the registry (<a class="reference external" href="https://github.com/hashicorp/terraform/issues/23792">#23792</a>)</li>
+<li>command/init: use backend config from state when <code class="docutils literal"><span class="pre">-backend=false</span></code> is used during <code class="docutils literal"><span class="pre">init</span></code>. (<a class="reference external" href="https://github.com/hashicorp/terraform/issues/23802">#23802</a>)</li>
+<li>core: Do not evaluate unused config values, which may not be valid during destroy (<a class="reference external" href="https://github.com/hashicorp/terraform/issues/23717">#23717</a>)</li>
+<li>core: Better error handling for an odd \should never happen\ situation regarding the restoration of a deposed instance during a <code class="docutils literal"><span class="pre">create_before_destroy</span></code> replace action. While this does not yet fix the situation (it can still happen), it now has a specialized error message to hopefully help gather some more information about the root cause in future reports. (<a class="reference external" href="https://github.com/hashicorp/terraform/issues/23718">#23718</a>)</li>
+<li>core: Prevent insertion of default providers when resources are removed from the config. (<a class="reference external" href="https://github.com/hashicorp/terraform/issues/23696">#23696</a>)</li>
+<li>core: Detect and handle dependencies implied by references in a <code class="docutils literal"><span class="pre">connection</span></code> block directly within a <code class="docutils literal"><span class="pre">resource</span></code> block. (<a class="reference external" href="https://github.com/hashicorp/terraform/issues/23663">#23663</a>)</li>
+<li>communicator/ssh: Fix deadlock when SSH agent forwarding fails. (<a class="reference external" href="https://github.com/hashicorp/terraform/issues/23661">#23661</a>)</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="v0.12.20.html"
+                        title="previous chapter">Release v0.12.20</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../cert-manager/v1.0.4.html"
+                        title="next chapter">Release v1.0.4</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/terraform/v0.12.19.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../cert-manager/v1.0.4.html" title="Release v1.0.4"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="v0.12.20.html" title="Release v0.12.20"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MCSPS Release Notes  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Frank Kloeker.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>

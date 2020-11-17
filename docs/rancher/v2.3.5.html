@@ -1,0 +1,224 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Release v2.3.5 &#8212; MCSPS Release Notes  documentation</title>
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Release v2.3.4" href="v2.3.4.html" />
+    <link rel="prev" title="Release v2.3.6" href="v2.3.6.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="v2.3.4.html" title="Release v2.3.4"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="v2.3.6.html" title="Release v2.3.6"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MCSPS Release Notes  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="release-v2-3-5">
+<span id="release-v2-3-5"></span><h1>Release v2.3.5<a class="headerlink" href="#release-v2-3-5" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="important">
+<span id="important"></span><h2>Important<a class="headerlink" href="#important" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>This release was created to fix issues around the Istio chart primarily for air gap users. The updated Istio chart is available for anyone using v2.3.4 and v2.3.5, but for anyone who is an airgapped user, this chart is bundled into Rancher v2.3.5 so users can use the packaged bundle system charts.</li>
+<li>Please review the <a class="reference external" href="https://github.com/rancher/rancher/releases/tag/v2.3.0">v2.3.0 release notes</a> for important updates/ breaking changes if you are upgrading from a v2.2 release.</li>
+<li>Due to support for cert-manager v0.12.0, a new Helm chart has been released for the 2.2.x series to install Rancher. The underlying Rancher server container has only been updated to support the updated cert-manager changes. If you are using older cert-manager versions, please see <a class="reference external" href="https://rancher.com/docs/rancher/v2.x/en/installation/options/upgrading-cert-manager/">the documentation</a> on how to upgrade cert-manager.</li>
+</ul>
+<p>The following versions are now latest and stable:</p>
+<p>|Type | Rancher Version | Docker Tag |Helm Repo| Helm Chart Version |
+|---|---|---|---|---|
+| Latest | v2.3.5 | <code class="docutils literal"><span class="pre">rancher/rancher:latest</span></code> | server-charts/latest |v2.3.5 |
+| Stable | v2.3.5 | <code class="docutils literal"><span class="pre">rancher/rancher:stable</span></code> | server-charts/stable | v2.3.5 |</p>
+<p>Please review our <a class="reference external" href="https://rancher.com/docs/rancher/v2.x/en/installation/server-tags/">version documentation</a> for more details on versioning and tagging conventions.</p>
+</div>
+<div class="section" id="features-and-enhancements">
+<span id="features-and-enhancements"></span><h2>Features and Enhancements<a class="headerlink" href="#features-and-enhancements" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="experimental-features">
+<span id="experimental-features"></span><h2>Experimental Features<a class="headerlink" href="#experimental-features" title="Permalink to this headline">¶</a></h2>
+<p>We have introduced the ability to turn on and off experimental components inside Rancher. As of this release, you can manage feature flags through our UI. Alternatively, you can refer to our <a class="reference external" href="https://rancher.com/docs/rancher/v2.x/en/admin-settings/feature-flags/">docs on how to turn on the features when starting Rancher</a>.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://rancher.com/docs/rancher/v2.x/en/admin-settings/feature-flags/enable-not-default-storage-drivers/">UI for unsupported storage drivers</a></li>
+</ul>
+</div>
+<div class="section" id="major-bugs-fixed-since-v2-3-4">
+<span id="major-bugs-fixed-since-v2-3-4"></span><h2>Major Bugs Fixed Since v2.3.4<a class="headerlink" href="#major-bugs-fixed-since-v2-3-4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Fixed a UI issue where Istio wasn't able to edit the Istio configuration after deployment [<a class="reference external" href="https://github.com/rancher/rancher/issues/25114">#25114</a>]</li>
+<li>Fixed an issues around Istio being able to work in air gap setups [<a class="reference external" href="https://github.com/rancher/rancher/issues/25028">#25028</a>]</li>
+<li>Fixed an issue where enabling SDS gateway in Istio failed [<a class="reference external" href="https://github.com/rancher/rancher/issues/25051">#25051</a>]</li>
+<li>Fixed an issue where updates in Istio 1.4.3 requires new role data [<a class="reference external" href="https://github.com/rancher/rancher/issues/25077">#25077</a>]</li>
+<li>Fixed a UI issue where member roles were unable to removed from clusters after creation [<a class="reference external" href="https://github.com/rancher/rancher/issues/24934">#24934</a>]</li>
+</ul>
+</div>
+<div class="section" id="other-notes">
+<span id="other-notes"></span><h2>Other notes<a class="headerlink" href="#other-notes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="air-gap-installations-and-upgrades">
+<span id="air-gap-installations-and-upgrades"></span><h3>Air Gap Installations and Upgrades<a class="headerlink" href="#air-gap-installations-and-upgrades" title="Permalink to this headline">¶</a></h3>
+<p>In v2.3.0, an air gap install no longer requires mirroring the systems chart git repo. Please follow the directions on how to <a class="reference external" href="https://rancher.com/docs/rancher/v2.x/en/installation/air-gap/install-rancher">install Rancher to use the packaged systems chart</a>.</p>
+</div>
+<div class="section" id="known-major-issues">
+<span id="known-major-issues"></span><h3>Known Major Issues<a class="headerlink" href="#known-major-issues" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>RHEL 7.7 with selinux enabled and k8s 1.16 with RHEL Docker 1.13 is not working [<a class="reference external" href="https://github.com/rancher/rancher/issues/23662">#23662</a>]</li>
+<li>NGINX ingress controller 0.25.0 doesn't work on CPUs without SSE4.2 instruction set support [<a class="reference external" href="https://github.com/rancher/rancher/issues/23307">#23307</a>]</li>
+<li>Windows Limitations - There are a couple of known limitations with Windows due to upstream issues:</li>
+<li>Windows pods cannot access the Kubernetes API when using VXLAN (Overlay) backend for the flannel network provider. The workaround is to use the Host Gateway (L2bridge) backend for the flannel network provider. [<a class="reference external" href="https://github.com/rancher/rancher/issues/20968">#20968</a>]</li>
+<li>Logging only works on Host Gateway (L2bridge) backend for the flannel network provider [<a class="reference external" href="https://github.com/rancher/rancher/issues/20510">#20510</a>]</li>
+<li>Istio Limitation - Istio will not work with a restricted pod security policy [<a class="reference external" href="https://github.com/rancher/rancher/issues/22469">#22469</a>]</li>
+<li>HPA Limitation - HPA UI doesn't work on GKE clusters as GKE doesn't support the <code class="docutils literal"><span class="pre">v2beta2.autoscaling</span></code> API [<a class="reference external" href="https://github.com/rancher/rancher/issues/22292">#22292</a>]</li>
+<li>Hardening Guide Limitations - If you have used Rancher's hardening guide, there are some known issues</li>
+<li>kubectl in UI doesn't work [<a class="reference external" href="https://github.com/rancher/rancher/issues/19439">#19439</a>]</li>
+<li>Pipelines don't work [<a class="reference external" href="https://github.com/rancher/rancher/issues/22844">#22844</a>]</li>
+<li>Adding taints to existing node templates from an upgraded setup will not be applied unless a reconcile is triggered on the cluster. When scaling up/down worker nodes, no reconcile is triggered, but scaling up/down either control plane/etcd nodes or editing a cluster (like upgrading to the latest Kubernetes version) would update to support taints on the nodes. [<a class="reference external" href="https://github.com/rancher/rancher/issues/22672">#22672</a>]</li>
+<li>Cluster alerting and logging can get stuck in <code class="docutils literal"><span class="pre">Updating</span></code> state after upgrading Rancher. Workaround steps are provided in the issue [<a class="reference external" href="https://github.com/rancher/rancher/issues/21480">21480</a>]</li>
+<li>If you have Rancher cluster with OpenStack cloud provider having LoadBalancer set, and the cluster was provisioned on version 2.2.3 or less, the upgrade to the Rancher version v2.2.4 and up will fail. Steps to mitigate can be found in the comment to [<a class="reference external" href="https://github.com/rancher/rancher/issues/20699">20699</a>]</li>
+<li>In clusters that have a Kubernetes cloud provider configured and have agents registered with hostname or FQDN (so not valid IP addresses), kube-proxy will fail to start. This can be checked in the API output for the node (<code class="docutils literal"><span class="pre">customConfig</span></code> -&gt; <code class="docutils literal"><span class="pre">address</span></code> or <code class="docutils literal"><span class="pre">internalAddress</span></code>) [<a class="reference external" href="https://github.com/rancher/rke/issues/1725">RKE#1725</a>]</li>
+<li>Rancher log collection format changed when upgrading the Fluentd Kubernetes metadata plugin. A json log is no longer parsed and put into the log as top level keys. Issue to optionally bring back this behavior[<a class="reference external" href="https://github.com/rancher/rancher/issues/23646">23646</a>]</li>
+</ul>
+</div>
+</div>
+<div class="section" id="versions">
+<span id="versions"></span><h2>Versions<a class="headerlink" href="#versions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="images">
+<span id="images"></span><h3>Images<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>rancher/rancher:v2.3.5</li>
+<li>rancher/rancher-agent:v2.3.5</li>
+</ul>
+</div>
+<div class="section" id="tools">
+<span id="tools"></span><h3>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>cli - <a class="reference external" href="https://github.com/rancher/cli/releases/tag/v2.3.2">v2.3.2</a></li>
+<li>rke - <a class="reference external" href="https://github.com/rancher/rke/releases/tag/v1.0.4">v1.0.4</a></li>
+</ul>
+</div>
+<div class="section" id="kubernetes">
+<span id="kubernetes"></span><h3>Kubernetes<a class="headerlink" href="#kubernetes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/rancher/hyperkube/releases/tag/v1.17.2-rancher1">1.17.2</a> (default)</li>
+<li><a class="reference external" href="https://github.com/rancher/hyperkube/releases/tag/v1.16.6-rancher1">1.16.6</a></li>
+<li><a class="reference external" href="https://github.com/rancher/hyperkube/releases/tag/v1.15.9-rancher1">1.15.9</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="upgrades-and-rollbacks">
+<span id="upgrades-and-rollbacks"></span><h2>Upgrades and Rollbacks<a class="headerlink" href="#upgrades-and-rollbacks" title="Permalink to this headline">¶</a></h2>
+<p>Rancher supports both upgrade and rollback. Please note the version you would like to <a class="reference external" href="https://rancher.com/docs/rancher/v2.x/en/upgrades/">upgrade</a> or <a class="reference external" href="https://rancher.com/docs/rancher/v2.x/en/backups/rollbacks/">rollback</a> to change the Rancher version.</p>
+<p>Please be aware that upon an upgrade to v2.3.0+, any edits to a Rancher launched Kubernetes cluster will cause all system components to restart due to added tolerations to Kubernetes system components. Plan accordingly.</p>
+<p>Recent changes to cert-manager require an upgrade if you have an HA install of Rancher using self-signed certificates. If you are using cert-manager older than v0.9.1, please see <a class="reference external" href="https://rancher.com/docs/rancher/v2.x/en/installation/options/upgrading-cert-manager/">the documentation</a> on how to upgrade cert-manager.</p>
+<p><strong>Important:</strong> When rolling back, we are expecting you to rollback to the state at the time of your upgrade. Any changes post upgrade would not be reflected.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Release v2.3.5</a><ul>
+<li><a class="reference internal" href="#important">Important</a></li>
+<li><a class="reference internal" href="#features-and-enhancements">Features and Enhancements</a></li>
+<li><a class="reference internal" href="#experimental-features">Experimental Features</a></li>
+<li><a class="reference internal" href="#major-bugs-fixed-since-v2-3-4">Major Bugs Fixed Since v2.3.4</a></li>
+<li><a class="reference internal" href="#other-notes">Other notes</a><ul>
+<li><a class="reference internal" href="#air-gap-installations-and-upgrades">Air Gap Installations and Upgrades</a></li>
+<li><a class="reference internal" href="#known-major-issues">Known Major Issues</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#versions">Versions</a><ul>
+<li><a class="reference internal" href="#images">Images</a></li>
+<li><a class="reference internal" href="#tools">Tools</a></li>
+<li><a class="reference internal" href="#kubernetes">Kubernetes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#upgrades-and-rollbacks">Upgrades and Rollbacks</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="v2.3.6.html"
+                        title="previous chapter">Release v2.3.6</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="v2.3.4.html"
+                        title="next chapter">Release v2.3.4</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/rancher/v2.3.5.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="v2.3.4.html" title="Release v2.3.4"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="v2.3.6.html" title="Release v2.3.6"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MCSPS Release Notes  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Frank Kloeker.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>

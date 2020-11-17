@@ -1,0 +1,159 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Release v0.7.4 &#8212; MCSPS Release Notes  documentation</title>
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Release v1.21.4" href="../terraform-provider-opentelekomcloud/v1.21.4.html" />
+    <link rel="prev" title="Release v1.0.4" href="../cert-manager/v1.0.4.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../terraform-provider-opentelekomcloud/v1.21.4.html" title="Release v1.21.4"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../cert-manager/v1.0.4.html" title="Release v1.0.4"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MCSPS Release Notes  documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="release-v0-7-4">
+<span id="release-v0-7-4"></span><h1>Release v0.7.4<a class="headerlink" href="#release-v0-7-4" title="Permalink to this headline">¶</a></h1>
+<p>Changelog:</p>
+<ul class="simple">
+<li>Fix Designate doc (#1697) &#64;openstacker</li>
+<li>Improve documentation about rfc2136 TTLs (#1581) &#64;stefanlasiewski</li>
+<li>aws: errors with context (#1705) &#64;bpineau</li>
+<li>Update kustomization for 0.7.3 release (#1709) &#64;james-callahan</li>
+<li>\passphrase:\ is missing from oci.yaml example (#1712) &#64;tonychoe</li>
+<li>update and clean up azure dependencies (#1727) &#64;tariq1890</li>
+<li>add event handler for istio gateway and virtualservice source (#1728) &#64;tariq1890</li>
+<li>Ignore wildcard hosts in Istio gateways (#1625) &#64;haines</li>
+<li>Add Scaleway DNS as a new provider (#1643) &#64;Sh4d1</li>
+<li>bump kubernetes dependencies and run go mod tidy (#1732) &#64;tariq1890</li>
+<li>update release docs to include kustomization config (#1736) &#64;vinny-sabatini</li>
+<li>fix goimports local import order and update golangci-lint (#1737) &#64;tariq1890</li>
+<li>docs: cleanup version roadmap docs (#1731) &#64;vinny-sabatini</li>
+<li>External DNS should uses ALIAS for AWS Global Accelerator (#1549) &#64;Reuuke</li>
+<li>added --txt-prefix to google deployment (#1729) &#64;prune998</li>
+<li>Docs: Fixed typos (#1734) &#64;ddymko</li>
+<li>add license header check to the CI (#1738) &#64;tariq1890</li>
+<li>Update Documentation with Updated Registry Location (#1741) &#64;seanmalloy</li>
+<li>utilize the errors package for error handling (#1748) &#64;vinny-sabatini</li>
+<li>remove unused field IstioIngressGatewayServices (#1753) &#64;tariq1890</li>
+<li>provide documentation of available prometheus metrics (#1752) &#64;vinny-sabatini</li>
+<li>docs: enhance pull request template (#1747) &#64;seanmalloy</li>
+<li>Fix index out of range when hostname has no dots (#1756) &#64;chemasan</li>
+<li>Updated FAQ for usage of annotation-filter (#1763) &#64;jgrumboe</li>
+<li>Add Cloudflare documentation on use of <code class="docutils literal"><span class="pre">--zone-id-filter</span></code> (#1751) &#64;loozhengyuan</li>
+<li>Move Inactive Maintainers To Emeritus Approvers (#1761) &#64;seanmalloy</li>
+<li>Enable azure_private_dns to work with non \AzurePublicCloud\ clouds (#1578) &#64;daddonpa</li>
+<li>Add tutorial for GKE with workload identity (#1765) &#64;ddgenome</li>
+<li>Fixes coverall, #1755 (#1762) &#64;jgrumboe</li>
+<li>Remove changelog from PR template (#1767) &#64;Raffo</li>
+<li>Update pull requests template (#1769) &#64;seanmalloy</li>
+<li>Add quick start section to contributor docs (#1766) &#64;seanmalloy</li>
+<li>fix ingress-controller yaml link (#1768) &#64;kapekost</li>
+<li>ns1: add minttlseconds (#1576) &#64;dennisme</li>
+<li>Update Contributing Documentation (#1760) &#64;seanmalloy</li>
+<li>Contour HTTPProxy support (#1628) &#64;josephglanville</li>
+<li>aws: cache zones list (#1704) &#64;bpineau</li>
+<li>Update kustomize base (#1777) &#64;mgoodness</li>
+<li>Add --zone-name-filter option for azure provider (#1060) &#64;titilambert</li>
+<li>add service annotation to set public/private iface for NodePort (#1310) &#64;rbtr</li>
+<li>Publish ExternalIPs for LoadBalancer services (#1500) &#64;burningalchemist</li>
+<li>Hetzner: fix records update (#1778) &#64;21h</li>
+<li>Optionally ignore tls rules in ingress source (#1645) &#64;Benjile</li>
+</ul>
+<p>Docker images are available on Google Container Registry:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">k8s</span><span class="o">.</span><span class="n">gcr</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">external</span><span class="o">-</span><span class="n">dns</span><span class="o">/</span><span class="n">external</span><span class="o">-</span><span class="n">dns</span><span class="p">:</span><span class="n">v0</span><span class="o">.</span><span class="mf">7.4</span> <span class="o">--</span><span class="n">help</span>
+</pre></div>
+</div>
+<p>🎉 Thank you all for your contributions 🎉</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../cert-manager/v1.0.4.html"
+                        title="previous chapter">Release v1.0.4</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../terraform-provider-opentelekomcloud/v1.21.4.html"
+                        title="next chapter">Release v1.21.4</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/external-dns/v0.7.4.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../terraform-provider-opentelekomcloud/v1.21.4.html" title="Release v1.21.4"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../cert-manager/v1.0.4.html" title="Release v1.0.4"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">MCSPS Release Notes  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Frank Kloeker.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>
