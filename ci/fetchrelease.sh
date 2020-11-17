@@ -7,6 +7,8 @@ curl -H "Authorization: token ${GITHUB_OAUTH}" --silent -i https://api.github.co
 
 git remote set-url --push origin https://oauth2:$DEPLOY_TOKEN@gitlab.devops.telekom.de/mcsps/k8s-releases.git
 
+cat .git/config
+
 function checkrelease() {
   ORG=$1
   REPO=$2
