@@ -14,6 +14,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'otcdocstheme',
     'sphinx.ext.viewcode',
+    'sphinxfeed',
 ]
 
 # -- Project information -----------------------------------------------------
@@ -76,3 +77,7 @@ texinfo_documents = [
 ]
 
 # gettext_compact = False     # optional.
+
+feed_base_url = 'http://k8s-releases.readthedocs.io'
+feed_author = 'MCSPS Team'
+feed_description = "K8S Release Blog"
