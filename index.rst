@@ -51,23 +51,13 @@ Rancher
    rancher/v1.6.30.md
 
 
-Terraform
-=========
+Cloud Provider Openstack
+========================
 
 .. toctree::
    :maxdepth: 1
 
-   terraform/v0.13.5.md
-   terraform/v0.12.29.md
-   terraform/v0.12.28.md
-   terraform/v0.12.27.md
-   terraform/v0.12.26.md
-   terraform/v0.12.25.md
-   terraform/v0.12.24.md
-   terraform/v0.12.23.md
-   terraform/v0.12.21.md
-   terraform/v0.12.20.md
-   terraform/v0.12.19.md
+   cloud-provider-openstack/openstack-manila-csi-1.0.0.md
 
 
 Cert-Manager
@@ -97,13 +87,23 @@ Terraform Provider Opentelekomcloud
    terraform-provider-opentelekomcloud/v1.21.4.md
 
 
-Cloud Provider Openstack
-========================
+Terraform
+=========
 
 .. toctree::
    :maxdepth: 1
 
-   cloud-provider-openstack/openstack-manila-csi-1.0.0.md
+   terraform/v0.13.5.md
+   terraform/v0.12.29.md
+   terraform/v0.12.28.md
+   terraform/v0.12.27.md
+   terraform/v0.12.26.md
+   terraform/v0.12.25.md
+   terraform/v0.12.24.md
+   terraform/v0.12.23.md
+   terraform/v0.12.21.md
+   terraform/v0.12.20.md
+   terraform/v0.12.19.md
 
 
 Indices and tables
