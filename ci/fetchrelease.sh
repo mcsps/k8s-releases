@@ -65,6 +65,14 @@ function buildindex {
   find external-dns/ -name "*.md" -printf "   %p\n" | sort -r >> index.rst
   echo "" >> index.rst
 
+  cat tpl/7.rst >> index.rst
+  find terraform-provider-opentelekomcloud/ -name "*.md" -printf "   %p\n" | sort -r >> index.rst
+  echo "" >> index.rst
+
+  cat tpl/8.rst >> index.rst
+  find cloud-provider-openstack/ -name "*.md" -printf "   %p\n" | sort -r >> index.rst
+  echo "" >> index.rst
+
   cat tpl/99.rst >> index.rst
   GCOUNT=$(git status --porcelain | wc -l)
     if [[ "${GCOUNT}" != "0" ]] ; then
