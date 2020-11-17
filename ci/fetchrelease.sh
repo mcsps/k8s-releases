@@ -62,4 +62,5 @@ function buildindex {
 checkrelease rancher rancher
 checkrelease kubernetes kubernetes
 checkrelease hashicorp terraform
+checkrelease jetstack cert-manager
 buildindex
