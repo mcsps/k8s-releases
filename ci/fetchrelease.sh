@@ -61,6 +61,10 @@ function buildindex {
   find cert-manager/ -name "*.md" -printf "   %p\n" | sort -r >> index.rst
   echo "" >> index.rst
 
+  cat tpl/6.rst >> index.rst
+  find external-dns/ -name "*.md" -printf "   %p\n" | sort -r >> index.rst
+  echo "" >> index.rst
+
   cat tpl/99.rst >> index.rst
   GCOUNT=$(git status --porcelain | wc -l)
     if [[ "${GCOUNT}" != "0" ]] ; then
