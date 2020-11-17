@@ -14,7 +14,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'otcdocstheme',
     'sphinx.ext.viewcode',
-    'sphinxfeed',
+    'yasfb',
 ]
 
 # -- Project information -----------------------------------------------------
