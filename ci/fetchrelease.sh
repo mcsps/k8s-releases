@@ -44,16 +44,24 @@ function checkrelease() {
 function buildindex {
 
   cat tpl/1.rst > index.rst
+
   cat tpl/2.rst >> index.rst
   find kubernetes/ -name "*.md" -printf "   %p\n"  | sort -r >> index.rst
   echo "" >> index.rst
+
   cat tpl/3.rst >> index.rst
   find rancher/ -name "*.md" -printf "   %p\n"  | sort -r >> index.rst
   echo "" >> index.rst
+
   cat tpl/4.rst >> index.rst
   find terraform/ -name "*.md" -printf "   %p\n" | sort -r >> index.rst
   echo "" >> index.rst
+
   cat tpl/5.rst >> index.rst
+  find cert-manager/ -name "*.md" -printf "   %p\n" | sort -r >> index.rst
+  echo "" >> index.rst
+
+  cat tpl/99.rst >> index.rst
   GCOUNT=$(git status --porcelain | wc -l)
     if [[ "${GCOUNT}" != "0" ]] ; then
       git add index.rst

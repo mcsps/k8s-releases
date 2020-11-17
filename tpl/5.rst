@@ -1,6 +1,7 @@
 
-Indices and tables
-==================
+Cert-Manager
+============
 
-* :ref:`search`
+.. toctree::
+   :maxdepth: 1
 
