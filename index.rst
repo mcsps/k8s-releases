@@ -70,6 +70,15 @@ Terraform
    terraform/v0.12.19.md
 
 
+Cert-Manager
+============
+
+.. toctree::
+   :maxdepth: 1
+
+   cert-manager/v1.0.4.md
+
+
 Indices and tables
 ==================
 
