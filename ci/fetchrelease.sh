@@ -23,6 +23,9 @@ function checkrelease() {
       echo "OK: create tag ${REPO}-${RTAG}"
       git tag ${REPO}-${RTAG} 
       git push origin --tags
+      if [ ! -d "${REPO}" ]; then
+        mkdir ${REPO}
+      fi
       if [[ "${REPO}" != "rancher" ]]; then
         echo "# Release ${RTAG}" > ${REPO}/${RTAG}.md
         echo -en ${DESC} >> ${REPO}/${RTAG}.md
