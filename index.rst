@@ -79,6 +79,15 @@ Cert-Manager
    cert-manager/v1.0.4.md
 
 
+External DNS
+============
+
+.. toctree::
+   :maxdepth: 1
+
+   external-dns/v0.7.4.md
+
+
 Indices and tables
 ==================
 
