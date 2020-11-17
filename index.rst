@@ -14,6 +14,7 @@ Kubernetes
    kubernetes/v1.18.6.md
    kubernetes/v1.18.5.md
    kubernetes/v1.18.2.md
+   kubernetes/v1.18.12.md
    kubernetes/v1.18.1.md
    kubernetes/v1.18.0.md
    kubernetes/v1.17.1.md
@@ -34,6 +35,7 @@ Rancher
 .. toctree::
    :maxdepth: 1
 
+   rancher/v2.5.2.md
    rancher/v2.4.5.md
    rancher/v2.4.4.md
    rancher/v2.4.3.md
@@ -55,6 +57,7 @@ Terraform
 .. toctree::
    :maxdepth: 1
 
+   terraform/v0.13.5.md
    terraform/v0.12.29.md
    terraform/v0.12.28.md
    terraform/v0.12.27.md
