@@ -74,4 +74,5 @@ checkrelease rancher rancher
 checkrelease kubernetes kubernetes
 checkrelease hashicorp terraform
 checkrelease jetstack cert-manager
+checkrelease kubernetes-sigs external-dns
 buildindex
