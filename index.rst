@@ -40,6 +40,7 @@ Rancher
    rancher/v2.4.4.md
    rancher/v2.4.3.md
    rancher/v2.4.2.md
+   rancher/v2.4.11.md
    rancher/v2.4.0.md
    rancher/v2.3.6.md
    rancher/v2.3.5.md
