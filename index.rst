@@ -11,6 +11,7 @@ Kubernetes
 .. toctree::
    :maxdepth: 1
 
+   kubernetes/v1.20.0.md
    kubernetes/v1.18.6.md
    kubernetes/v1.18.5.md
    kubernetes/v1.18.2.md
@@ -98,6 +99,7 @@ Terraform
 .. toctree::
    :maxdepth: 1
 
+   terraform/v0.14.2.md
    terraform/v0.14.0.md
    terraform/v0.13.5.md
    terraform/v0.12.29.md
