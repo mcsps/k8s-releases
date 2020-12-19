@@ -19,6 +19,7 @@ Kubernetes
    kubernetes/v1.18.12.md
    kubernetes/v1.18.1.md
    kubernetes/v1.18.0.md
+   kubernetes/v1.17.16.md
    kubernetes/v1.17.1.md
    kubernetes/v1.16.4.md
    kubernetes/v1.16.11.md
