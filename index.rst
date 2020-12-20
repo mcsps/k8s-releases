@@ -80,6 +80,7 @@ External DNS
 .. toctree::
    :maxdepth: 1
 
+   external-dns/v0.7.5.md
    external-dns/v0.7.4.md
 
 
