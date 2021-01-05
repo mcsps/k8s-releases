@@ -61,6 +61,7 @@ Cloud Provider Openstack
 .. toctree::
    :maxdepth: 1
 
+   cloud-provider-openstack/openstack-manila-csi-1.0.3.md
    cloud-provider-openstack/openstack-manila-csi-1.0.0.md
 
 
