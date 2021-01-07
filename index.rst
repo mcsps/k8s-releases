@@ -61,6 +61,7 @@ Cloud Provider Openstack
 .. toctree::
    :maxdepth: 1
 
+   cloud-provider-openstack/v1.20.0.md
    cloud-provider-openstack/openstack-manila-csi-1.0.3.md
    cloud-provider-openstack/openstack-manila-csi-1.0.0.md
 
@@ -106,6 +107,7 @@ Terraform
 .. toctree::
    :maxdepth: 1
 
+   terraform/v0.14.4.md
    terraform/v0.14.3.md
    terraform/v0.14.2.md
    terraform/v0.14.0.md
