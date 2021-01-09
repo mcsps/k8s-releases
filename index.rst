@@ -38,6 +38,7 @@ Rancher
 .. toctree::
    :maxdepth: 1
 
+   rancher/v2.5.5.md
    rancher/v2.5.2.md
    rancher/v2.4.5.md
    rancher/v2.4.4.md
