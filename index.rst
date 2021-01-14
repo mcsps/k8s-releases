@@ -11,6 +11,7 @@ Kubernetes
 .. toctree::
    :maxdepth: 1
 
+   kubernetes/v1.20.2.md
    kubernetes/v1.20.0.md
    kubernetes/v1.19.5.md
    kubernetes/v1.18.6.md
@@ -84,6 +85,7 @@ External DNS
 .. toctree::
    :maxdepth: 1
 
+   external-dns/v0.7.6.md
    external-dns/v0.7.5.md
    external-dns/v0.7.4.md
 
