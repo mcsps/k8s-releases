@@ -79,6 +79,7 @@ Cert-Manager
    :maxdepth: 1
 
    cert-manager/v1.2.0.md
+   cert-manager/v1.1.1.md
    cert-manager/v1.1.0.md
    cert-manager/v1.0.4.md
 
