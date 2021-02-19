@@ -11,6 +11,7 @@ Kubernetes
 .. toctree::
    :maxdepth: 1
 
+   kubernetes/v1.20.4.md
    kubernetes/v1.20.3.md
    kubernetes/v1.20.2.md
    kubernetes/v1.20.0.md
