@@ -141,6 +141,7 @@ Terraform
    terraform/v0.14.4.md
    terraform/v0.14.3.md
    terraform/v0.14.2.md
+   terraform/v0.14.10.md
    terraform/v0.14.0.md
    terraform/v0.13.5.md
    terraform/v0.12.29.md
