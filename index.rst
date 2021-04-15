@@ -85,6 +85,7 @@ Cert-Manager
 .. toctree::
    :maxdepth: 1
 
+   cert-manager/v1.3.1.md
    cert-manager/v1.3.0.md
    cert-manager/v1.2.0.md
    cert-manager/v1.1.1.md
@@ -136,6 +137,7 @@ Terraform
 .. toctree::
    :maxdepth: 1
 
+   terraform/v0.15.0.md
    terraform/v0.14.9.md
    terraform/v0.14.8.md
    terraform/v0.14.7.md
