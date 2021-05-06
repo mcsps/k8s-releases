@@ -44,6 +44,7 @@ Rancher
 .. toctree::
    :maxdepth: 1
 
+   rancher/v2.5.7-patch1.md
    rancher/v2.5.6.md
    rancher/v2.5.5.md
    rancher/v2.5.2.md
@@ -142,6 +143,7 @@ Terraform
 .. toctree::
    :maxdepth: 1
 
+   terraform/v0.15.2.md
    terraform/v0.15.0.md
    terraform/v0.14.9.md
    terraform/v0.14.8.md
