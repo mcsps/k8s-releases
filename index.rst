@@ -77,6 +77,7 @@ Cloud Provider Openstack
 
    cloud-provider-openstack/v1.21.0.md
    cloud-provider-openstack/v1.20.0.md
+   cloud-provider-openstack/openstack-manila-csi-1.1.2.md
    cloud-provider-openstack/openstack-manila-csi-1.0.5.md
    cloud-provider-openstack/openstack-manila-csi-1.0.3.md
    cloud-provider-openstack/openstack-manila-csi-1.0.0.md
@@ -123,6 +124,7 @@ Terraform Provider Opentelekomcloud
    terraform-provider-opentelekomcloud/v1.23.4.md
    terraform-provider-opentelekomcloud/v1.23.3.md
    terraform-provider-opentelekomcloud/v1.23.2.md
+   terraform-provider-opentelekomcloud/v1.23.11.md
    terraform-provider-opentelekomcloud/v1.23.10.md
    terraform-provider-opentelekomcloud/v1.23.1.md
    terraform-provider-opentelekomcloud/v1.23.0.md
@@ -146,6 +148,7 @@ Terraform
 .. toctree::
    :maxdepth: 1
 
+   terraform/v0.15.4.md
    terraform/v0.15.3.md
    terraform/v0.15.2.md
    terraform/v0.15.0.md
