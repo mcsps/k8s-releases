@@ -46,6 +46,7 @@ Rancher
    :maxdepth: 1
 
    rancher/v2.5.8.md
+   rancher/v2.5.8-patch1.md
    rancher/v2.5.7-patch1.md
    rancher/v2.5.6.md
    rancher/v2.5.5.md
