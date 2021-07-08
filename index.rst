@@ -11,6 +11,7 @@ Kubernetes
 .. toctree::
    :maxdepth: 1
 
+   kubernetes/v1.21.2.md
    kubernetes/v1.21.1.md
    kubernetes/v1.21.0.md
    kubernetes/v1.20.5.md
@@ -46,8 +47,6 @@ Rancher
    :maxdepth: 1
 
    rancher/v2.5.8.md
-   rancher/v2.5.8-patch1.md
-   rancher/v2.5.7-patch1.md
    rancher/v2.5.6.md
    rancher/v2.5.5.md
    rancher/v2.5.2.md
@@ -91,6 +90,7 @@ Cert-Manager
 .. toctree::
    :maxdepth: 1
 
+   cert-manager/v1.4.0.md
    cert-manager/v1.3.1.md
    cert-manager/v1.3.0.md
    cert-manager/v1.2.0.md
@@ -117,6 +117,7 @@ Terraform Provider Opentelekomcloud
 .. toctree::
    :maxdepth: 1
 
+   terraform-provider-opentelekomcloud/v1.24.3.md
    terraform-provider-opentelekomcloud/v1.23.9.md
    terraform-provider-opentelekomcloud/v1.23.8.md
    terraform-provider-opentelekomcloud/v1.23.7.md
@@ -150,6 +151,7 @@ Terraform
 .. toctree::
    :maxdepth: 1
 
+   terraform/v1.0.2.md
    terraform/v0.15.4.md
    terraform/v0.15.3.md
    terraform/v0.15.2.md
