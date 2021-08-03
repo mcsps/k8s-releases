@@ -95,6 +95,7 @@ Cert-Manager
 
    cert-manager/v1.4.1.md
    cert-manager/v1.4.0.md
+   cert-manager/v1.3.2.md
    cert-manager/v1.3.1.md
    cert-manager/v1.3.0.md
    cert-manager/v1.2.0.md
