@@ -111,6 +111,7 @@ External DNS
 .. toctree::
    :maxdepth: 1
 
+   external-dns/v0.9.0.md
    external-dns/v0.8.0.md
    external-dns/v0.7.6.md
    external-dns/v0.7.5.md
