@@ -80,6 +80,7 @@ Cloud Provider Openstack
 .. toctree::
    :maxdepth: 1
 
+   cloud-provider-openstack/v1.22.0.md
    cloud-provider-openstack/v1.21.0.md
    cloud-provider-openstack/v1.20.0.md
    cloud-provider-openstack/openstack-manila-csi-1.1.2.md
@@ -122,6 +123,7 @@ External DNS
    external-dns/v0.7.6.md
    external-dns/v0.7.5.md
    external-dns/v0.7.4.md
+   external-dns/external-dns-helm-chart-1.2.0.md
 
 
 Terraform Provider Opentelekomcloud
@@ -170,6 +172,7 @@ Terraform
 .. toctree::
    :maxdepth: 1
 
+   terraform/v1.0.5.md
    terraform/v1.0.4.md
    terraform/v1.0.3.md
    terraform/v1.0.2.md
