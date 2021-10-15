@@ -58,6 +58,7 @@ Rancher
    rancher/v2.5.6.md
    rancher/v2.5.5.md
    rancher/v2.5.2.md
+   rancher/v2.5.10.md
    rancher/v2.4.5.md
    rancher/v2.4.4.md
    rancher/v2.4.3.md
@@ -103,6 +104,7 @@ Cert-Manager
 .. toctree::
    :maxdepth: 1
 
+   cert-manager/v1.6.0-alpha.2.md
    cert-manager/v1.5.4.md
    cert-manager/v1.5.3.md
    cert-manager/v1.5.2.md
@@ -143,6 +145,7 @@ Terraform Provider Opentelekomcloud
 .. toctree::
    :maxdepth: 1
 
+   terraform-provider-opentelekomcloud/v1.25.7.md
    terraform-provider-opentelekomcloud/v1.25.6.md
    terraform-provider-opentelekomcloud/v1.25.5.md
    terraform-provider-opentelekomcloud/v1.25.4.md
