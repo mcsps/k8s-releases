@@ -135,6 +135,7 @@ External DNS
    external-dns/v0.7.5.md
    external-dns/v0.7.4.md
    external-dns/v0.10.0.md
+   external-dns/external-dns-helm-chart-1.4.0.md
    external-dns/external-dns-helm-chart-1.3.2.md
    external-dns/external-dns-helm-chart-1.3.0.md
    external-dns/external-dns-helm-chart-1.2.0.md
