@@ -105,6 +105,7 @@ Cert-Manager
 .. toctree::
    :maxdepth: 1
 
+   cert-manager/v1.6.0.md
    cert-manager/v1.6.0-alpha.2.md
    cert-manager/v1.5.4.md
    cert-manager/v1.5.3.md
