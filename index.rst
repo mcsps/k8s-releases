@@ -60,6 +60,7 @@ Rancher
    rancher/v2.5.6.md
    rancher/v2.5.5.md
    rancher/v2.5.2.md
+   rancher/v2.5.11.md
    rancher/v2.5.10.md
    rancher/v2.4.5.md
    rancher/v2.4.4.md
@@ -138,6 +139,7 @@ External DNS
    external-dns/v0.7.5.md
    external-dns/v0.7.4.md
    external-dns/v0.10.0.md
+   external-dns/external-dns-helm-chart-1.4.1.md
    external-dns/external-dns-helm-chart-1.4.0.md
    external-dns/external-dns-helm-chart-1.3.2.md
    external-dns/external-dns-helm-chart-1.3.0.md
