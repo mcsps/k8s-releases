@@ -17,6 +17,7 @@ Kubernetes
    kubernetes/v1.22.2.md
    kubernetes/v1.22.1.md
    kubernetes/v1.22.0.md
+   kubernetes/v1.21.8.md
    kubernetes/v1.21.4.md
    kubernetes/v1.21.3.md
    kubernetes/v1.21.2.md
@@ -142,6 +143,7 @@ External DNS
    external-dns/v0.7.5.md
    external-dns/v0.7.4.md
    external-dns/v0.10.0.md
+   external-dns/external-dns-helm-chart-1.7.0.md
    external-dns/external-dns-helm-chart-1.6.0.md
    external-dns/external-dns-helm-chart-1.5.0.md
    external-dns/external-dns-helm-chart-1.4.1.md
@@ -211,6 +213,7 @@ Terraform
 .. toctree::
    :maxdepth: 1
 
+   terraform/v1.1.1.md
    terraform/v1.1.0.md
    terraform/v1.0.9.md
    terraform/v1.0.8.md
