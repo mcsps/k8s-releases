@@ -61,12 +61,10 @@ Rancher
    rancher/v2.6.1.md
    rancher/v2.6.0.md
    rancher/v2.5.8.md
-   rancher/v2.5.8-patch2.md
    rancher/v2.5.6.md
    rancher/v2.5.5.md
    rancher/v2.5.2.md
    rancher/v2.5.11.md
-   rancher/v2.5.11-patch1.md
    rancher/v2.5.10.md
    rancher/v2.4.5.md
    rancher/v2.4.4.md
