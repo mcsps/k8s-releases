@@ -26,12 +26,8 @@ function checkrelease() {
       if [ ! -d "${REPO}" ]; then
         mkdir ${REPO}
       fi
-      if [[ "${REPO}" != "rancher" ]]; then
-        echo "# Release ${RTAG}" > ${REPO}/${RTAG}.md
-        echo -en ${DESC} >> ${REPO}/${RTAG}.md
-      else 
-        echo -en ${DESC} > ${REPO}/${RTAG}.md
-      fi
+      echo "# Release ${RTAG}" > ${REPO}/${RTAG}.md
+      echo -en ${DESC} >> ${REPO}/${RTAG}.md
       sed -i 's/"//g' ${REPO}/${RTAG}.md
       sed -i 's/\\r//g' ${REPO}/${RTAG}.md
       git add ${REPO}/${RTAG}.md
