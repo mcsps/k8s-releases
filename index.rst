@@ -11,6 +11,7 @@ Kubernetes
 .. toctree::
    :maxdepth: 1
 
+   kubernetes/v1.23.3.md
    kubernetes/v1.23.2.md
    kubernetes/v1.23.1.md
    kubernetes/v1.23.0.md
@@ -65,6 +66,7 @@ Rancher
    rancher/v2.5.6.md
    rancher/v2.5.5.md
    rancher/v2.5.2.md
+   rancher/v2.5.12.md
    rancher/v2.5.11.md
    rancher/v2.5.10.md
    rancher/v2.4.5.md
