@@ -11,6 +11,7 @@ Kubernetes
 .. toctree::
    :maxdepth: 1
 
+   kubernetes/v1.23.4.md
    kubernetes/v1.23.3.md
    kubernetes/v1.23.2.md
    kubernetes/v1.23.1.md
@@ -109,6 +110,7 @@ Cloud Provider Openstack
    cloud-provider-openstack/openstack-manila-csi-1.0.0.md
    cloud-provider-openstack/openstack-cloud-controller-manager-1.1.1.md
    cloud-provider-openstack/openstack-cloud-controller-manager-1.0.2.md
+   cloud-provider-openstack/openstack-cinder-csi-1.3.9.md
    cloud-provider-openstack/openstack-cinder-csi-1.2.14.md
 
 
