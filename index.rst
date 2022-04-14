@@ -158,6 +158,7 @@ External DNS
    external-dns/v0.7.4.md
    external-dns/v0.11.0.md
    external-dns/v0.10.0.md
+   external-dns/external-dns-helm-chart-1.8.0.md
    external-dns/external-dns-helm-chart-1.7.1.md
    external-dns/external-dns-helm-chart-1.7.0.md
    external-dns/external-dns-helm-chart-1.6.0.md
@@ -175,6 +176,7 @@ Terraform Provider Opentelekomcloud
 .. toctree::
    :maxdepth: 1
 
+   terraform-provider-opentelekomcloud/v1.29.1.md
    terraform-provider-opentelekomcloud/v1.29.0.md
    terraform-provider-opentelekomcloud/v1.28.2.md
    terraform-provider-opentelekomcloud/v1.28.1.md
