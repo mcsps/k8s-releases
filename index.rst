@@ -71,6 +71,7 @@ Rancher
    rancher/v2.5.6.md
    rancher/v2.5.5.md
    rancher/v2.5.2.md
+   rancher/v2.5.13.md
    rancher/v2.5.12.md
    rancher/v2.5.12-debug1.md
    rancher/v2.5.11.md
