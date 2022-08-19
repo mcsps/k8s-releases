@@ -11,6 +11,7 @@ Kubernetes
 .. toctree::
    :maxdepth: 1
 
+   kubernetes/v1.24.4.md
    kubernetes/v1.23.5.md
    kubernetes/v1.23.4.md
    kubernetes/v1.23.3.md
@@ -60,6 +61,7 @@ Rancher
 .. toctree::
    :maxdepth: 1
 
+   rancher/v2.6.7.md
    rancher/v2.6.4.md
    rancher/v2.6.3.md
    rancher/v2.6.3-patch2.md
@@ -104,6 +106,7 @@ Cloud Provider Openstack
 .. toctree::
    :maxdepth: 1
 
+   cloud-provider-openstack/v1.23.4.md
    cloud-provider-openstack/v1.23.0.md
    cloud-provider-openstack/v1.22.0.md
    cloud-provider-openstack/v1.21.0.md
@@ -169,6 +172,7 @@ External DNS
    external-dns/external-dns-helm-chart-1.3.2.md
    external-dns/external-dns-helm-chart-1.3.0.md
    external-dns/external-dns-helm-chart-1.2.0.md
+   external-dns/external-dns-helm-chart-1.11.0.md
 
 
 Terraform Provider Opentelekomcloud
@@ -177,6 +181,7 @@ Terraform Provider Opentelekomcloud
 .. toctree::
    :maxdepth: 1
 
+   terraform-provider-opentelekomcloud/v1.31.1.md
    terraform-provider-opentelekomcloud/v1.29.1.md
    terraform-provider-opentelekomcloud/v1.29.0.md
    terraform-provider-opentelekomcloud/v1.28.2.md
@@ -241,6 +246,7 @@ Terraform
 .. toctree::
    :maxdepth: 1
 
+   terraform/v1.2.7.md
    terraform/v1.1.8.md
    terraform/v1.1.7.md
    terraform/v1.1.6.md
