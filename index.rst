@@ -12,6 +12,7 @@ Kubernetes
    :maxdepth: 1
 
    kubernetes/v1.25.0.md
+   kubernetes/v1.24.5.md
    kubernetes/v1.24.4.md
    kubernetes/v1.23.5.md
    kubernetes/v1.23.4.md
@@ -184,6 +185,7 @@ Terraform Provider Opentelekomcloud
 .. toctree::
    :maxdepth: 1
 
+   terraform-provider-opentelekomcloud/v1.31.3.md
    terraform-provider-opentelekomcloud/v1.31.2.md
    terraform-provider-opentelekomcloud/v1.31.1.md
    terraform-provider-opentelekomcloud/v1.29.1.md
