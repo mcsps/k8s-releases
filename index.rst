@@ -120,6 +120,7 @@ Cloud Provider Openstack
    cloud-provider-openstack/v1.24.3.md
    cloud-provider-openstack/v1.23.4.md
    cloud-provider-openstack/v1.23.0.md
+   cloud-provider-openstack/v1.22.2.md
    cloud-provider-openstack/v1.22.0.md
    cloud-provider-openstack/v1.21.0.md
    cloud-provider-openstack/v1.20.0.md
@@ -172,6 +173,7 @@ External DNS
    external-dns/v0.7.6.md
    external-dns/v0.7.5.md
    external-dns/v0.7.4.md
+   external-dns/v0.13.1.md
    external-dns/v0.11.0.md
    external-dns/v0.10.0.md
    external-dns/external-dns-helm-chart-1.8.0.md
