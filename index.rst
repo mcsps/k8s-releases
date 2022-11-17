@@ -67,6 +67,7 @@ Rancher
 .. toctree::
    :maxdepth: 1
 
+   rancher/v2.7.0.md
    rancher/v2.6.9.md
    rancher/v2.6.8.md
    rancher/v2.6.7.md
@@ -196,6 +197,7 @@ Terraform Provider Opentelekomcloud
 .. toctree::
    :maxdepth: 1
 
+   terraform-provider-opentelekomcloud/v1.31.8.md
    terraform-provider-opentelekomcloud/v1.31.7.md
    terraform-provider-opentelekomcloud/v1.31.6.md
    terraform-provider-opentelekomcloud/v1.31.5.md
