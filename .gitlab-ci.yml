@@ -16,6 +16,7 @@ before_script:
  - echo "$GITHUB_SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
  - git config --global user.email 'mcsps-dis@telekom.de'
  - git config --global user.name 'Deploy User'
+ - echo "done before_script"
  
 variables:
   BRANCH: $CI_COMMIT_REF_NAME
