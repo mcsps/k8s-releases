@@ -10,7 +10,6 @@ cache: {}
 before_script:
  - apk add --update --no-cache findutils bash curl wget git jq openssh-client && apk upgrade
  - mkdir -p ~/.ssh/
- - ssh-keyscan -h
  - ssh-keyscan -v github.com
  - ssh-keyscan github.com >> ~/.ssh/known_hosts
  - echo "done ssh-keyscan"
