@@ -122,6 +122,7 @@ Cloud Provider Openstack
 
    cloud-provider-openstack/v1.26.1.md
    cloud-provider-openstack/v1.26.0.md
+   cloud-provider-openstack/v1.25.5.md
    cloud-provider-openstack/v1.25.3.md
    cloud-provider-openstack/v1.25.2.md
    cloud-provider-openstack/v1.25.1.md
@@ -207,6 +208,7 @@ Terraform Provider Opentelekomcloud
 .. toctree::
    :maxdepth: 1
 
+   terraform-provider-opentelekomcloud/v1.33.2.md
    terraform-provider-opentelekomcloud/v1.33.1.md
    terraform-provider-opentelekomcloud/v1.33.0.md
    terraform-provider-opentelekomcloud/v1.32.3.md
