@@ -142,6 +142,7 @@ Cloud Provider Openstack
    cloud-provider-openstack/openstack-cloud-controller-manager-1.4.0.md
    cloud-provider-openstack/openstack-cloud-controller-manager-1.1.1.md
    cloud-provider-openstack/openstack-cloud-controller-manager-1.0.2.md
+   cloud-provider-openstack/openstack-cinder-csi-2.1.1.md
    cloud-provider-openstack/openstack-cinder-csi-1.3.9.md
    cloud-provider-openstack/openstack-cinder-csi-1.2.14.md
 
@@ -288,6 +289,7 @@ Terraform
 .. toctree::
    :maxdepth: 1
 
+   terraform/v1.4.1.md
    terraform/v1.4.0.md
    terraform/v1.3.9.md
    terraform/v1.3.8.md
