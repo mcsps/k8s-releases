@@ -135,6 +135,7 @@ Cloud Provider Openstack
    cloud-provider-openstack/v1.22.0.md
    cloud-provider-openstack/v1.21.0.md
    cloud-provider-openstack/v1.20.0.md
+   cloud-provider-openstack/openstack-manila-csi-2.25.0.md
    cloud-provider-openstack/openstack-manila-csi-1.4.0.md
    cloud-provider-openstack/openstack-manila-csi-1.1.2.md
    cloud-provider-openstack/openstack-manila-csi-1.0.5.md
