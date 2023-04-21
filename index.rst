@@ -221,6 +221,7 @@ Terraform Provider Opentelekomcloud
 .. toctree::
    :maxdepth: 1
 
+   terraform-provider-opentelekomcloud/v1.34.2.md
    terraform-provider-opentelekomcloud/v1.34.1.md
    terraform-provider-opentelekomcloud/v1.34.0.md
    terraform-provider-opentelekomcloud/v1.33.2.md
