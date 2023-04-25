@@ -75,6 +75,7 @@ Rancher
 .. toctree::
    :maxdepth: 1
 
+   rancher/v2.7.3.md
    rancher/v2.7.2.md
    rancher/v2.7.1.md
    rancher/v2.7.0.md
@@ -125,6 +126,7 @@ Cloud Provider Openstack
 .. toctree::
    :maxdepth: 1
 
+   cloud-provider-openstack/v1.27.1.md
    cloud-provider-openstack/v1.27.0.md
    cloud-provider-openstack/v1.26.1.md
    cloud-provider-openstack/v1.26.0.md
