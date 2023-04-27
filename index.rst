@@ -151,6 +151,7 @@ Cloud Provider Openstack
    cloud-provider-openstack/openstack-manila-csi-1.0.5.md
    cloud-provider-openstack/openstack-manila-csi-1.0.3.md
    cloud-provider-openstack/openstack-manila-csi-1.0.0.md
+   cloud-provider-openstack/openstack-cloud-controller-manager-2.28.0-alpha.2.md
    cloud-provider-openstack/openstack-cloud-controller-manager-1.4.0.md
    cloud-provider-openstack/openstack-cloud-controller-manager-1.1.1.md
    cloud-provider-openstack/openstack-cloud-controller-manager-1.0.2.md
@@ -306,6 +307,7 @@ Terraform
 .. toctree::
    :maxdepth: 1
 
+   terraform/v1.4.6.md
    terraform/v1.4.5.md
    terraform/v1.4.4.md
    terraform/v1.4.2.md
