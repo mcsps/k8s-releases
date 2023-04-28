@@ -87,6 +87,7 @@ Rancher
    rancher/v2.6.3-patch2.md
    rancher/v2.6.3-patch1.md
    rancher/v2.6.2.md
+   rancher/v2.6.12.md
    rancher/v2.6.1.md
    rancher/v2.6.0.md
    rancher/v2.5.8.md
@@ -142,6 +143,7 @@ Cloud Provider Openstack
    cloud-provider-openstack/v1.22.0.md
    cloud-provider-openstack/v1.21.0.md
    cloud-provider-openstack/v1.20.0.md
+   cloud-provider-openstack/openstack-manila-csi-2.28.0-alpha.2.md
    cloud-provider-openstack/openstack-manila-csi-2.28.0-alpha.1.md
    cloud-provider-openstack/openstack-manila-csi-2.27.0-alpha.1.md
    cloud-provider-openstack/openstack-manila-csi-2.27.0-alpha.0.md
