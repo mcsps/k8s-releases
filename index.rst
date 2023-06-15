@@ -11,6 +11,7 @@ Kubernetes
 .. toctree::
    :maxdepth: 1
 
+   kubernetes/v1.27.3.md
    kubernetes/v1.27.1.md
    kubernetes/v1.27.0.md
    kubernetes/v1.26.3.md
@@ -133,6 +134,7 @@ Cloud Provider Openstack
    cloud-provider-openstack/v1.27.0.md
    cloud-provider-openstack/v1.26.1.md
    cloud-provider-openstack/v1.26.0.md
+   cloud-provider-openstack/v1.25.6.md
    cloud-provider-openstack/v1.25.5.md
    cloud-provider-openstack/v1.25.3.md
    cloud-provider-openstack/v1.25.2.md
