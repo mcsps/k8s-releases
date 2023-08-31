@@ -81,6 +81,7 @@ Rancher
 .. toctree::
    :maxdepth: 1
 
+   rancher/v2.7.6.md
    rancher/v2.7.5.md
    rancher/v2.7.4.md
    rancher/v2.7.3.md
@@ -167,6 +168,7 @@ Cloud Provider Openstack
    cloud-provider-openstack/openstack-manila-csi-1.0.5.md
    cloud-provider-openstack/openstack-manila-csi-1.0.3.md
    cloud-provider-openstack/openstack-manila-csi-1.0.0.md
+   cloud-provider-openstack/openstack-cloud-controller-manager-2.29.0-alpha.1.md
    cloud-provider-openstack/openstack-cloud-controller-manager-2.28.0-alpha.7.md
    cloud-provider-openstack/openstack-cloud-controller-manager-2.28.0-alpha.6.md
    cloud-provider-openstack/openstack-cloud-controller-manager-2.28.0-alpha.5.md
