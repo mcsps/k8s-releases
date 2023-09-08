@@ -224,6 +224,7 @@ External DNS
    external-dns/v0.7.6.md
    external-dns/v0.7.5.md
    external-dns/v0.7.4.md
+   external-dns/v0.13.6.md
    external-dns/v0.13.5.md
    external-dns/v0.13.4.md
    external-dns/v0.13.2.md
@@ -250,6 +251,7 @@ Terraform Provider Opentelekomcloud
 .. toctree::
    :maxdepth: 1
 
+   terraform-provider-opentelekomcloud/v1.35.7.md
    terraform-provider-opentelekomcloud/v1.35.6.md
    terraform-provider-opentelekomcloud/v1.35.5.md
    terraform-provider-opentelekomcloud/v1.35.4.md
@@ -342,6 +344,7 @@ Terraform
 .. toctree::
    :maxdepth: 1
 
+   terraform/v1.5.7.md
    terraform/v1.5.6.md
    terraform/v1.5.5.md
    terraform/v1.5.4.md
