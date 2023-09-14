@@ -22,6 +22,7 @@ Kubernetes
    kubernetes/v1.25.6.md
    kubernetes/v1.25.3.md
    kubernetes/v1.25.2.md
+   kubernetes/v1.25.14.md
    kubernetes/v1.25.13.md
    kubernetes/v1.25.10.md
    kubernetes/v1.25.1.md
@@ -352,6 +353,7 @@ Terraform
    terraform/v1.5.2.md
    terraform/v1.5.1.md
    terraform/v1.5.0.md
+   terraform/v1.4.7.md
    terraform/v1.4.6.md
    terraform/v1.4.5.md
    terraform/v1.4.4.md
