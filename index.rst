@@ -176,6 +176,7 @@ Cloud Provider Openstack
    cloud-provider-openstack/openstack-cloud-controller-manager-2.28.0-alpha.5.md
    cloud-provider-openstack/openstack-cloud-controller-manager-2.28.0-alpha.4.md
    cloud-provider-openstack/openstack-cloud-controller-manager-2.28.0-alpha.2.md
+   cloud-provider-openstack/openstack-cloud-controller-manager-2.27.4.md
    cloud-provider-openstack/openstack-cloud-controller-manager-2.27.2.md
    cloud-provider-openstack/openstack-cloud-controller-manager-1.4.0.md
    cloud-provider-openstack/openstack-cloud-controller-manager-1.1.1.md
@@ -252,6 +253,7 @@ Terraform Provider Opentelekomcloud
 .. toctree::
    :maxdepth: 1
 
+   terraform-provider-opentelekomcloud/v1.35.8.md
    terraform-provider-opentelekomcloud/v1.35.7.md
    terraform-provider-opentelekomcloud/v1.35.6.md
    terraform-provider-opentelekomcloud/v1.35.5.md
