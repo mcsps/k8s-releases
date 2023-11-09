@@ -235,6 +235,7 @@ External DNS
    external-dns/v0.7.6.md
    external-dns/v0.7.5.md
    external-dns/v0.7.4.md
+   external-dns/v0.14.0.md
    external-dns/v0.13.6.md
    external-dns/v0.13.5.md
    external-dns/v0.13.4.md
