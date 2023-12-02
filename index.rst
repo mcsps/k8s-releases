@@ -193,6 +193,7 @@ Cloud Provider Openstack
    cloud-provider-openstack/openstack-cloud-controller-manager-1.4.0.md
    cloud-provider-openstack/openstack-cloud-controller-manager-1.1.1.md
    cloud-provider-openstack/openstack-cloud-controller-manager-1.0.2.md
+   cloud-provider-openstack/openstack-cinder-csi-2.29.0-alpha.3.md
    cloud-provider-openstack/openstack-cinder-csi-2.28.0-alpha.4.md
    cloud-provider-openstack/openstack-cinder-csi-2.2.1.md
    cloud-provider-openstack/openstack-cinder-csi-2.1.1.md
