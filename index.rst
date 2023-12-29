@@ -196,6 +196,7 @@ Cloud Provider Openstack
    cloud-provider-openstack/openstack-cloud-controller-manager-1.4.0.md
    cloud-provider-openstack/openstack-cloud-controller-manager-1.1.1.md
    cloud-provider-openstack/openstack-cloud-controller-manager-1.0.2.md
+   cloud-provider-openstack/openstack-cinder-csi-2.29.0-alpha.4.md
    cloud-provider-openstack/openstack-cinder-csi-2.29.0-alpha.3.md
    cloud-provider-openstack/openstack-cinder-csi-2.28.0-alpha.4.md
    cloud-provider-openstack/openstack-cinder-csi-2.2.1.md
@@ -278,6 +279,7 @@ Terraform Provider Opentelekomcloud
    terraform-provider-opentelekomcloud/v1.35.4.md
    terraform-provider-opentelekomcloud/v1.35.3.md
    terraform-provider-opentelekomcloud/v1.35.2.md
+   terraform-provider-opentelekomcloud/v1.35.15.md
    terraform-provider-opentelekomcloud/v1.35.14.md
    terraform-provider-opentelekomcloud/v1.35.13.md
    terraform-provider-opentelekomcloud/v1.35.12.md
