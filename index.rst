@@ -155,6 +155,7 @@ Cloud Provider Openstack
 .. toctree::
    :maxdepth: 1
 
+   cloud-provider-openstack/v1.30.0.md
    cloud-provider-openstack/v1.29.0.md
    cloud-provider-openstack/v1.28.1.md
    cloud-provider-openstack/v1.28.0.md
