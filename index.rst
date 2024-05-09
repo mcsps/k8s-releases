@@ -397,6 +397,7 @@ Terraform
 .. toctree::
    :maxdepth: 1
 
+   terraform/v1.8.3.md
    terraform/v1.8.2.md
    terraform/v1.8.1.md
    terraform/v1.8.0.md
