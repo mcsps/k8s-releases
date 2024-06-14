@@ -301,6 +301,7 @@ Terraform Provider Opentelekomcloud
    terraform-provider-opentelekomcloud/v1.36.4.md
    terraform-provider-opentelekomcloud/v1.36.3.md
    terraform-provider-opentelekomcloud/v1.36.2.md
+   terraform-provider-opentelekomcloud/v1.36.12.md
    terraform-provider-opentelekomcloud/v1.36.10.md
    terraform-provider-opentelekomcloud/v1.36.1.md
    terraform-provider-opentelekomcloud/v1.36.0.md
